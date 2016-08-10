@@ -1,6 +1,6 @@
 <template lang="jade">
-  section0(v-if='section === 0')
-  section1(v-if='section === 1')
+  bgm
+  sections
 </template>
 
 <style lang="less">
@@ -9,32 +9,31 @@
 
 <script>
 import store from './vuex/store'
-import { closeLoading, getWXInfo } from './vuex/actions.js'
-
-import section0 from './components/section0'
-import section1 from './components/section1'
+import { getWXInfo } from './vuex/actions.js'
 
 export default {
   name: 'app',
   store,
   vuex: {
-    getters: {
-      section: state => state.section
-    },
+    getters: {},
     actions: {}
   },
   components: {
-    section0,
-    section1
+    bgm: (resolve) => {
+      require(['./components/bgm'], resolve)
+    },
+    sections: (resolve) => {
+      require(['./components/section'], resolve)
+    }
   },
   data: function () {
     return {}
   },
   ready: function () {
     // 关闭loading
-    setTimeout(() => {
-      closeLoading('.loading')
-    }, 500)
+    // setTimeout(() => {
+    //   closeLoading('.loading')
+    // }, 500)
 
     // 获取微信jssdk配置信息
     getWXInfo(this)

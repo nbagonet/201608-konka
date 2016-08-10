@@ -5,7 +5,7 @@
  * @param  {string} selector 选择器
  */
 const closeLoading = (selector) => {
-  document.querySelector(selector).style.display = 'none'
+  window.$(selector).hide()
 }
 
 /**
@@ -32,7 +32,7 @@ const configWX = (data) => {
   const _signature = data.signature
 
   window.wx.config({
-    debug: false,
+    // debug: true,
     appId: _appId,
     timestamp: _timestamp,
     nonceStr: _nonceStr,
