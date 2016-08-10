@@ -1,5 +1,6 @@
 <template lang="jade">
-  section0
+  section0(v-if='section === 0')
+  section1(v-if='section === 1')
 </template>
 
 <style lang="less">
@@ -8,19 +9,23 @@
 
 <script>
 import store from './vuex/store'
-import { closeLoading } from './vuex/actions.js'
+import { closeLoading, getWXInfo } from './vuex/actions.js'
 
 import section0 from './components/section0'
+import section1 from './components/section1'
 
 export default {
   name: 'app',
   store,
   vuex: {
-    getters: {},
+    getters: {
+      section: state => state.section
+    },
     actions: {}
   },
   components: {
-    section0
+    section0,
+    section1
   },
   data: function () {
     return {}
@@ -32,7 +37,7 @@ export default {
     }, 500)
 
     // 获取微信jssdk配置信息
-    // getWXInfo(this)
+    getWXInfo(this)
 
     // let camera
     // let scene
