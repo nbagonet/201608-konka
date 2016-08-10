@@ -25,6 +25,9 @@
     //- 文字
     #section0-txt0
     #section0-txt1
+
+    //- 过场闪光
+    #section0-light
 </template>
 
 <style lang="less">
@@ -38,14 +41,16 @@ export default {
   name: 'section0',
   vuex: {
     getters: {},
-    actions: {}
+    actions: {
+      init
+    }
   },
   components: {},
   data: function () {
     return {}
   },
   ready: function () {
-    init()
+    this.init()
   }
 }
 </script>
