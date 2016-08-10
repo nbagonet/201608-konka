@@ -1,0 +1,284 @@
+@import '../../less/config.less';
+@i: '../../assets/res/';
+
+#section0
+{
+    position: relative;
+    z-index: 10;
+
+    overflow: hidden;
+
+    .absolute(0,0,0,0);
+    .size(100%);
+    > div
+    {
+        opacity: 0;
+    }
+}
+#section0-bg
+{
+    z-index: 1;
+
+    background: url('@{i}15.jpg') no-repeat 50% 50%;
+    background-size: cover;
+
+    .absolute(0,0,0,0);
+}
+#section0-tracks
+{
+    z-index: 10;
+
+    background: url('@{i}14.png') no-repeat 50% 100%;
+    background-size: 100% auto;
+
+    .absolute(0,0,0,0);
+}
+#section0-plane0,
+#section0-plane1,
+#section0-plane2,
+#section0-plane3,
+#section0-plane4,
+#section0-plane5,
+#section0-plane6,
+#section0-plane7,
+#section0-plane8
+{
+    position: absolute;
+
+    overflow: hidden;
+
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+}
+#section0-plane0,
+#section0-plane1,
+#section0-plane2,
+#section0-plane3,
+#section0-plane4,
+#section0-plane5,
+#section0-plane6
+{
+    z-index: 20;
+}
+#section0-plane7
+{
+    z-index: 5;
+}
+#section0-plane8
+{
+    z-index: 50;
+}
+#section0-plane0
+{
+    top: -65rem/@r;
+    left: -60rem/@r;
+
+    background-image: url('@{i}4.png');
+
+    .size(264rem/@r);
+}
+#section0-plane1
+{
+    top: 130rem/@r;
+    right: -34rem/@r;
+
+    background-image: url('@{i}1.png');
+
+    .size(193rem/@r,118rem/@r);
+}
+#section0-plane2
+{
+    top: 350rem/@r;
+    right: 157rem/@r;
+
+    background-image: url('@{i}7.png');
+
+    .size(108rem/@r,119rem/@r);
+}
+#section0-plane3
+{
+    top: 380rem/@r;
+    right: 36rem/@r;
+
+    background-image: url('@{i}9.png');
+
+    .size(18rem/@r,18rem/@r);
+}
+#section0-plane4
+{
+    top: 638rem/@r;
+    right: 12rem/@r;
+
+    background-image: url('@{i}8.png');
+
+    .size(42rem/@r,43rem/@r);
+}
+#section0-plane5
+{
+    top: 873rem/@r;
+    left: 0;
+
+    background-image: url('@{i}2.png');
+
+    .size(197rem/@r,79rem/@r);
+}
+#section0-plane6
+{
+    bottom: -42rem/@r;
+    left: 0;
+
+    background-image: url('@{i}3.png');
+
+    .size(150rem/@r,151rem/@r);
+}
+#section0-plane7
+{
+    top: -164rem/@r;
+    left: -885rem/@r;
+
+    background-image: url('@{i}5.png');
+
+    .size(1232rem/@r,1107rem/@r);
+}
+#section0-plane8
+{
+    right: -329rem/@r;
+    bottom: -502rem/@r;
+
+    background-image: url('@{i}0.png');
+
+    .size(789rem/@r,789rem/@r);
+    .transition(transform 333ms linear);
+}
+#section0-people0,
+#section0-people1
+{
+    position: absolute;
+
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+}
+#section0-people0
+{
+    z-index: 30;
+    right: -170rem/@r;
+    bottom: 0;
+
+    background-image: url('@{i}12.png');
+
+    .size(535rem/@r,552rem/@r);
+}
+#section0-people1
+{
+    z-index: 25;
+    right: 195rem/@r;
+    bottom: 53rem/@r;
+
+    background-image: url('@{i}13.png');
+
+    .size(361rem/@r,375rem/@r);
+}
+#section0-ufo,
+#section0-ufo-light
+{
+    position: absolute;
+
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+}
+#section0-ufo
+{
+    z-index: 60;
+    right: 385rem/@r;
+    bottom: 600rem/@r;
+
+    background-image: url('@{i}17.png');
+
+    .size(271rem/@r,169rem/@r);
+    .rotate(-30deg);
+}
+#section0-ufo-light
+{
+    z-index: 20;
+    right: 115rem/@r;
+    bottom: -10rem/@r;
+
+    .size(255rem/@r*2,367rem/@r*2);
+    .rotate(-30deg);
+    > #section0-ufo-light-inner
+    {
+        overflow: hidden;
+
+        background-image: url('@{i}16.png');
+        background-repeat: no-repeat;
+        background-position: 50% 0%;
+        background-size: 100% auto;
+
+        .size(100%);
+    }
+}
+#section0-glass0,
+#section0-glass1
+{
+    position: absolute;
+    z-index: 35;
+
+    overflow: hidden;
+
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: cover;
+}
+#section0-glass0
+{
+    right: 91rem/@r;
+    bottom: 429rem/@r;
+
+    background-image: url('@{i}18.png');
+
+    .size(216rem/@r,98rem/@r);
+}
+#section0-glass1
+{
+    right: 415rem/@r;
+    bottom: 279rem/@r;
+
+    background-image: url('@{i}19.png');
+
+    .size(114rem/@r,150rem/@r);
+}
+#section0-txt0,
+#section0-txt1
+{
+    position: absolute;
+    z-index: 100;
+
+    overflow: hidden;
+
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: cover;
+}
+#section0-txt0
+{
+    top: 180rem/@r;
+    left: 50%;
+
+    background-image: url('@{i}10.png');
+
+    .size(295rem/@r,69rem/@r);
+    .margin(_,_,_,-147.5rem/@r);
+}
+#section0-txt1
+{
+    top: 282rem/@r;
+    left: 50%;
+
+    background-image: url('@{i}11.png');
+
+    .size(372rem/@r,51rem/@r);
+    .margin(_,_,_,-186rem/@r);
+}
