@@ -1,9 +1,9 @@
 const JT = window.JT
 const JTL = window.JTL
 
-export const timeline = JTL.create()
+export const _timeline = JTL.create()
 
-export const init = () => {
+export const init = ({ dispatch, state }) => {
   const $ = window.$
   const _bg = '#section0-bg'
   const _tracks = '#section0-tracks'
@@ -25,10 +25,11 @@ export const init = () => {
   const _t1 = '#section0-txt1'
   const _g0 = '#section0-glass0'
   const _g1 = '#section0-glass1'
+  const _l = '#section0-light'
 
   // 背景 begin
   JT.set(_tracks, { opacity: 1 })
-  timeline.fromTo(_bg, 30, {
+  _timeline.fromTo(_bg, 30, {
     scale: 1,
     opacity: 1
   }, {
@@ -46,13 +47,13 @@ export const init = () => {
     opacity: 1,
     y: _p0Y
   })
-  timeline.fromTo(_p0, 0.5, {
+  _timeline.fromTo(_p0, 0.5, {
     y: _p0Y
   }, {
     y: 0,
     ease: JT.Bounce.Out
   }, '+=.5')
-  timeline.fromTo(_p0, 0.5, {
+  _timeline.fromTo(_p0, 0.5, {
     y: 5
   }, {
     y: -5,
@@ -67,13 +68,13 @@ export const init = () => {
     opacity: 1,
     y: _p1Y
   })
-  timeline.fromTo(_p1, 0.6, {
+  _timeline.fromTo(_p1, 0.6, {
     y: _p1Y
   }, {
     y: 0,
     ease: JT.Bounce.Out
   }, '+=.5')
-  timeline.fromTo(_p1, 0.5, {
+  _timeline.fromTo(_p1, 0.5, {
     y: 5
   }, {
     y: -5,
@@ -88,13 +89,13 @@ export const init = () => {
     opacity: 1,
     x: _p2X
   })
-  timeline.fromTo(_p2, 1, {
+  _timeline.fromTo(_p2, 1, {
     x: _p2X
   }, {
     x: 0,
     ease: JT.Back.InOut
   }, '+=.4')
-  timeline.fromTo(_p2, 10, {
+  _timeline.fromTo(_p2, 10, {
     rotationZ: 0
   }, {
     rotationZ: -360,
@@ -108,13 +109,13 @@ export const init = () => {
     opacity: 1,
     x: _p3X
   })
-  timeline.fromTo(_p3, 1, {
+  _timeline.fromTo(_p3, 1, {
     x: _p3X
   }, {
     x: 0,
     ease: JT.Bounce.Out
   }, '+=.2')
-  timeline.fromTo(_p3, 0.5, {
+  _timeline.fromTo(_p3, 0.5, {
     y: -3
   }, {
     y: 3,
@@ -124,13 +125,13 @@ export const init = () => {
   // 星球3 end
 
   // 星球4 begin
-  timeline.fromTo(_p4, 0.5, {
+  _timeline.fromTo(_p4, 0.5, {
     opacity: 0
   }, {
     opacity: 1,
     ease: JT.Circ.In
   }, '+=.2')
-  timeline.fromTo(_p4, 0.4, {
+  _timeline.fromTo(_p4, 0.4, {
     y: -3
   }, {
     y: 3,
@@ -145,13 +146,13 @@ export const init = () => {
     opacity: 1,
     y: _p5Y
   })
-  timeline.fromTo(_p5, 0.7, {
+  _timeline.fromTo(_p5, 0.7, {
     y: _p5Y
   }, {
     y: 0,
     ease: JT.Bounce.Out
   }, '+=.2')
-  timeline.fromTo(_p5, 0.55, {
+  _timeline.fromTo(_p5, 0.55, {
     y: -3
   }, {
     y: 3,
@@ -166,7 +167,7 @@ export const init = () => {
     opacity: 1,
     y: _p6Y
   })
-  timeline.fromTo(_p6, 0.4, {
+  _timeline.fromTo(_p6, 0.4, {
     y: _p6Y,
     rotationZ: 0
   }, {
@@ -174,7 +175,7 @@ export const init = () => {
     rotationZ: 30,
     ease: JT.Sine.In
   }, '+=.25')
-  timeline.fromTo(_p6, 0.4 * 12, {
+  _timeline.fromTo(_p6, 0.4 * 12, {
     rotationZ: 30
   }, {
     rotationZ: 360 + 30,
@@ -183,7 +184,7 @@ export const init = () => {
   // 星球6 end
 
   // 星球7 begin
-  timeline.fromTo(_p7, 2, {
+  _timeline.fromTo(_p7, 2, {
     opacity: 0.5
   }, {
     opacity: 1,
@@ -201,7 +202,7 @@ export const init = () => {
     x: _p8X,
     y: _p8Y
   })
-  timeline.fromTo(_p8, 0.5, {
+  _timeline.fromTo(_p8, 0.5, {
     y: _p8Y,
     x: _p8X
   }, {
@@ -209,7 +210,7 @@ export const init = () => {
     x: 0,
     ease: JT.Sine.In
   }, '+=.2')
-  timeline.fromTo(_p8, 120, {
+  _timeline.fromTo(_p8, 120, {
     rotationZ: 0
   }, {
     rotationZ: 360,
@@ -223,7 +224,7 @@ export const init = () => {
     scaleX: 0,
     scaleY: 0
   })
-  timeline.fromTo(_t0, 1, {
+  _timeline.fromTo(_t0, 1, {
     opacity: 0,
     scaleX: 0,
     scaleY: 0
@@ -233,7 +234,7 @@ export const init = () => {
     scaleY: 2,
     ease: JT.Quad.InOut
   }, '+=.5')
-  timeline.fromTo(_t0, 0.5, {
+  _timeline.fromTo(_t0, 0.5, {
     scaleX: 2,
     scaleY: 2
   }, {
@@ -249,7 +250,7 @@ export const init = () => {
     scaleX: 0,
     scaleY: 0
   })
-  timeline.fromTo(_t1, 1, {
+  _timeline.fromTo(_t1, 1, {
     opacity: 0,
     scaleX: 0,
     scaleY: 0
@@ -259,7 +260,7 @@ export const init = () => {
     scaleY: 2,
     ease: JT.Quad.InOut
   }, '+=1')
-  timeline.fromTo(_t1, 0.5, {
+  _timeline.fromTo(_t1, 0.5, {
     scaleX: 2,
     scaleY: 2
   }, {
@@ -277,7 +278,7 @@ export const init = () => {
     x: _h0X,
     y: _h0Y
   })
-  timeline.fromTo(_h0, 1, {
+  _timeline.fromTo(_h0, 1, {
     x: _h0X,
     y: _h0Y
   }, {
@@ -295,7 +296,7 @@ export const init = () => {
     x: _h1X,
     y: _h1Y
   })
-  timeline.fromTo(_h1, 1, {
+  _timeline.fromTo(_h1, 1, {
     x: _h1X,
     y: _h1Y
   }, {
@@ -312,7 +313,7 @@ export const init = () => {
     scaleY: 0,
     rotationZ: 0
   })
-  timeline.fromTo(_u, 0.5, {
+  _timeline.fromTo(_u, 0.5, {
     opacity: 0,
     scaleX: 0,
     scaleY: 0,
@@ -324,7 +325,7 @@ export const init = () => {
     rotationZ: -25,
     ease: JT.Sine.In
   }, '+=2')
-  timeline.fromTo(_u, 3, {
+  _timeline.fromTo(_u, 3, {
     scaleX: 1,
     scaleY: 1,
     rotationZ: -25
@@ -347,7 +348,7 @@ export const init = () => {
     opacity: 0,
     height: 0
   })
-  timeline.fromTo(_ulin, 1, {
+  _timeline.fromTo(_ulin, 1, {
     opacity: 0,
     height: 0
   }, {
@@ -358,19 +359,32 @@ export const init = () => {
   // ufo光 end
 
   // 眼镜 begin
-  timeline.fromTo(_g0, 1, {
+  _timeline.fromTo(_g0, 1, {
     opacity: 0
   }, {
     opacity: 1
   }, '+=3')
-  timeline.fromTo(_g1, 1, {
+  _timeline.fromTo(_g1, 1, {
     opacity: 0
   }, {
     opacity: 1
   }, '+=3')
   // 眼镜 end
 
+  // 过场闪光 begin
+  _timeline.fromTo(_l, 0.5, {
+    opacity: 0
+  }, {
+    opacity: 1,
+    // ease: JT.Quad.Out,
+    onEnd: function () {
+      JT.killAll(true)
+      dispatch('SET_SECTION_ID', 1)
+    }
+  }, '+=3.75')
+  // 过场闪光 end
+
   // 播放 begin
-  timeline.play()
+  _timeline.play()
   // 播放 end
 }
