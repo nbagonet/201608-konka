@@ -1,0 +1,46 @@
+@import '../../less/config.less';
+@i: '../../assets/res/';
+
+#bgm
+{
+    z-index: 200;
+
+    overflow: hidden;
+
+    .absolute(30rem/@r,30rem/@r,_,_);
+    .translateZ(200px);
+    .size(60rem/@r);
+    audio
+    {
+        display: none;
+    }
+    .btn
+    {
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        .size(100%);
+    }
+    .play
+    {
+        background-image: url('@{i}27.png');
+
+        .animation(bgm-play 1s linear infinite);
+    }
+    .pause
+    {
+        background-image: url('@{i}26.png');
+    }
+}
+
+@keyframes bgm-play
+{
+    0%
+    {
+        .rotate(0deg);
+    }
+    100%
+    {
+        .rotate(360deg);
+    }
+}
