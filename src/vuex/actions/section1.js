@@ -171,9 +171,33 @@ export const init = ({ dispatch, state }) => {
   }, {
     scaleX: 1,
     scaleY: 1,
-    ease: JT.Quad.InOut
+    ease: JT.Quad.InOut,
+    onEnd: function () {
+      JT.kill(_tv0)
+      JT.set(_tv0, {
+        bottom: _tv0Y2
+      })
+    }
   }, '+=4.3')
   // 文字1 end
+
+  // tv0居中放大 begin
+  _tl.fromTo(_tv0, 1, {
+    zIndex: 30,
+    scaleX: 1,
+    scaleY: 1,
+    y: 0
+  }, {
+    y: 500,
+    zIndex: 30,
+    scaleX: 12,
+    scaleY: 12,
+    onEnd: function () {
+      JT.killAll(true)
+      dispatch('SET_SECTION_ID', 2)
+    }
+  }, '+=4.8')
+  // tv0居中放大 end
 
   // 播放 begin
   _tl.play()

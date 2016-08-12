@@ -4,7 +4,9 @@ Vue.use(Vuex)
 
 const state = {
   // 当前场景id
-  section: 0
+  section: 2,
+  // 自动播放bgm
+  BGMAutoPlay: false
 }
 
 const mutations = {

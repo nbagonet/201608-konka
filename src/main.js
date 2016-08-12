@@ -24,12 +24,12 @@ window.$ = $
 // window.CT = CT
 
 // Three.js
-import THREE from 'three'
-window.THREE = THREE
-import { initTHREECSS3D } from './plugin/three/CSS3DRenderer'
-import { initDeviceOrientationControls } from './plugin/three/DeviceOrientationControls'
-initTHREECSS3D()
-initDeviceOrientationControls()
+// import THREE from 'three'
+// window.THREE = THREE
+// import { initTHREECSS3D } from './plugin/three/CSS3DRenderer'
+// import { initDeviceOrientationControls } from './plugin/three/DeviceOrientationControls'
+// initTHREECSS3D()
+// initDeviceOrientationControls()
 
 import App from './App'
 /* eslint-disable no-new */

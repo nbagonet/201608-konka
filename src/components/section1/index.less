@@ -10,11 +10,17 @@
 
     .absolute(0,0,0,0);
     .size(100%);
+    transform-style: preserve-3d;
     > div
     {
         opacity: 0;
     }
-    transform-style: preserve-3d;
+    &.fade-leave
+    {
+        opacity: 0;
+
+        .transition(all .5s ease);
+    }
 }
 
 #section1-light
@@ -47,8 +53,8 @@
     overflow: visible;
 
     .size(419rem/@r,357rem/@r);
-    transform-style:preserve-3d;
-    backface-visibility:hidden;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
     .land
     {
         z-index: 10;
@@ -118,8 +124,9 @@
     {
         .transform(perspective(7rem) rotateY(30deg) translateX(5%));
     }
-    .screen{
-      .transform(perspective(7rem) rotateY(30deg) translateX(5%) translateZ(1px));
+    .screen
+    {
+        .transform(perspective(7rem) rotateY(30deg) translateX(5%) translateZ(1px));
     }
 }
 

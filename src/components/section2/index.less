@@ -1,0 +1,126 @@
+@import '../../less/config.less';
+@i: '../../assets/res/';
+
+#section2
+{
+    background: url('@{i}35.png') no-repeat 0 0;
+    background-size: cover;
+
+    @bg-suffix: 'jpg';
+    @clouds-prefix: 'clouds/c_';
+    @clouds-suffix: '.png';
+    &.fade-transition
+    {
+        .transition(opacity .5s ease);
+    }
+    &.fade-enter
+    {
+        opacity: 0;
+    }
+    // 背景 begin
+    .bg0,
+    .bg1,
+    .bg2,
+    .bg3,
+    .bg4,
+    .bg5,
+    .bg6,
+    .bg7,
+    .bg8,
+    .bg9
+    {
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: 100% 100%;
+    }
+    .bg0
+    {
+        background-image: url('@{i}57.@{bg-suffix}');
+    }
+    .bg1
+    {
+        background-image: url('@{i}58.@{bg-suffix}');
+    }
+    .bg2
+    {
+        background-image: url('@{i}59.@{bg-suffix}');
+    }
+    .bg3
+    {
+        background-image: url('@{i}60.@{bg-suffix}');
+    }
+    .bg4
+    {
+        background-image: url('@{i}61.@{bg-suffix}');
+    }
+    .bg5
+    {
+        background-image: url('@{i}62.@{bg-suffix}');
+    }
+    .bg6
+    {
+        background-image: url('@{i}63.@{bg-suffix}');
+    }
+    .bg7
+    {
+        background-image: url('@{i}64.@{bg-suffix}');
+    }
+    .bg8
+    {
+        background-color: #0e1c40;
+        background-image: url('@{i}38.png');
+    }
+    .bg9
+    {
+        background-color: #0e1c40;
+        background-image: url('@{i}39.png');
+    }
+    // 背景 end
+    // 云彩 begin
+    .cloud0,
+    .cloud1,
+    .cloud2,
+    .cloud3,
+    .cloud4,
+    .cloud5,
+    .cloud6,
+    .cloud7
+    {
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: 100% 87.5%;
+    }
+    .cloud0
+    {
+        background-image: url('@{i}@{clouds-prefix}01@{clouds-suffix}');
+    }
+    .cloud1
+    {
+        background-image: url('@{i}@{clouds-prefix}02@{clouds-suffix}');
+    }
+    .cloud2
+    {
+        background-image: url('@{i}@{clouds-prefix}03@{clouds-suffix}');
+    }
+    .cloud3
+    {
+        background-image: url('@{i}@{clouds-prefix}04@{clouds-suffix}');
+    }
+    .cloud4
+    {
+        background-image: url('@{i}@{clouds-prefix}05@{clouds-suffix}');
+    }
+    .cloud5
+    {
+        background-image: url('@{i}@{clouds-prefix}06@{clouds-suffix}');
+    }
+    .cloud6
+    {
+        background-image: url('@{i}@{clouds-prefix}07@{clouds-suffix}');
+    }
+    .cloud7
+    {
+        background-image: url('@{i}@{clouds-prefix}08@{clouds-suffix}');
+    }
+    // 云彩 end
+}

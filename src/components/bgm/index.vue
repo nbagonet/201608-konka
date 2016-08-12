@@ -13,7 +13,9 @@
 export default {
   name: 'bgm',
   vuex: {
-    getters: {},
+    getters: {
+      autoPlay: state => state.BGMAutoPlay
+    },
     actions: {}
   },
   components: {},
@@ -34,10 +36,13 @@ export default {
   },
   ready: function () {
     const _this = this
-    document.addEventListener('WeixinJSBridgeReady', function () {
+
+    if (this.autoPlay) {
+      document.addEventListener('WeixinJSBridgeReady', function () {
+        _this.play()
+      })
       _this.play()
-    })
-    _this.play()
+    }
   }
 }
 </script>

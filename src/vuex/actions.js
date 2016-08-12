@@ -68,41 +68,8 @@ const setWXShare = (conf) => {
   })
 }
 
-// const JT = window.JT
-// const JTL = window.JTL
-//
-// const setAniTimeline = () => {
-//   const t1 = JTL.create()
-//   t1.fromTo(
-//     '#section0-bg',
-//     30,
-//     {
-//       opacity: 1,
-//       scaleX: 1,
-//       scaleY: 1
-//     },
-//     {
-//       opacity: 0.8,
-//       scaleX: 1.2,
-//       scaleY: 1.2,
-//       repeat: 9999,
-//       yoyo: true,
-//       ease: JT.Quad.InOut,
-//       onUpdate: function () {
-//         // console.log(this.curVars)
-//       }
-//     }
-//   )
-//   return t1
-// }
-//
-// const playAni = () => {
-//   setAniTimeline().play()
-// }
-
 export {
   closeLoading,
   getWXInfo,
   setWXShare
-  // playAni
 }
