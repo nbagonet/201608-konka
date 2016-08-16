@@ -7,8 +7,12 @@
     background-size: cover;
 
     @bg-suffix: 'jpg';
-    @clouds-prefix: 'clouds/c_';
+    @clouds-prefix: '/c_';
     @clouds-suffix: '.png';
+    img
+    {
+        -webkit-backface-visibility: hidden;
+    }
     &.fade-transition
     {
         .transition(opacity .5s ease);
@@ -123,4 +127,82 @@
         background-image: url('@{i}@{clouds-prefix}08@{clouds-suffix}');
     }
     // 云彩 end
+
+    // 项目 begin
+    .item0-0
+    {
+        background: url('@{i}43.png') no-repeat;
+        background-size: cover;
+    }
+    .item0-1
+    {
+        background: url('@{i}44.png') no-repeat 50% 37%;
+        background-size: 23.6% auto;
+    }
+    .item1-0,
+    .item1-1,
+    .item1-2,
+    .item1-3
+    {
+        background-repeat: no-repeat;
+        background-position: 0 10%;
+        background-size: 100% auto;
+    }
+    .item1-0
+    {
+        background-image: url('@{i}itm1_01.png');
+    }
+    .item1-1
+    {
+        background-image: url('@{i}itm1_02.png');
+    }
+    .item1-2
+    {
+        background-image: url('@{i}itm1_03.png');
+    }
+    .item1-3
+    {
+        background-image: url('@{i}itm1_04.png');
+    }
+    .item2
+    {
+        background: url('@{i}46.png') no-repeat 50% 15.45%;
+        background-size: 100% auto;
+    }
+    .item3
+    {
+        background: url('@{i}67.png') no-repeat 0% 30%;
+        background-size: 100% auto;
+    }
+    .item3-0
+    {
+        background: url('@{i}65.png') no-repeat 0% 30%;
+        background-size: 100% auto;
+    }
+    .item3-1
+    {
+        background: url('@{i}66.png') no-repeat 0% 30%;
+        background-size: 100% auto;
+    }
+    .item4
+    {
+        background: url('@{i}47.png') no-repeat 50% 53%;
+        background-size: 75% auto;
+    }
+    .item5
+    {
+        background: url('@{i}52.png') no-repeat 58% 58%;
+        background-size: 15% auto;
+    }
+    .item6
+    {
+        background: url('@{i}53.png') no-repeat 50% 100%;
+        background-size: 100% auto;
+    }
+    .item7
+    {
+        background: url('@{i}54.png') no-repeat 50% 65%;
+        background-size: 100% auto;
+    }
+    // 项目 end
 }

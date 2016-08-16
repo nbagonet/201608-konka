@@ -3,11 +3,11 @@
 </template>
 
 <style lang="less">
-@import './index.less';
+@import './index2.less';
 </style>
 
 <script>
-import { init } from '../../vuex/actions/section2'
+import { init } from '../../vuex/actions/section2-new'
 
 export default {
   name: 'section2',

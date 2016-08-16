@@ -1,0 +1,192 @@
+@import '../../less/config.less';
+
+.generate-items(@n, @prefix, @suffix, @i: 1) when (@i =< @n) {
+  &@{i} {
+    background: url('@{prefix}@{i}.@{suffix}') no-repeat;
+    background-size: 100% 100%;
+  }
+  .generate-items(@n, @prefix, @suffix, (@i + 1));
+}
+
+#section2
+{
+    background: url('../../assets/res/35.png') no-repeat 0 0;
+    background-size: 100% 100%;
+    // .transition(all 300ms ease-in-out)!important;
+    img
+    {
+        -webkit-backface-visibility: hidden;
+    }
+    &.fade-transition
+    {
+        .transition(opacity .5s ease);
+    }
+    &.fade-enter
+    {
+        opacity: 0;
+    }
+    // 背景 begin
+    .bg_{
+      .generate-items(20, '../../assets/3d/bg/bg_', 'jpg');
+    }
+    // 背景 end
+    // 星星 begin
+    .star_{
+      .generate-items(20, '../../assets/3d/star/star_', 'png');
+    }
+    // 星星 end
+    // 云彩 begin
+    .cloud_{
+      .generate-items(20, '../../assets/3d/cloud/cloud_', 'png');
+    }
+    // 云彩 end
+    // 项目0 begin
+    .x0_{
+      .generate-items(20, '../../assets/3d/items/item0_', 'png');
+    }
+    // 项目0 end
+    // 项目1 begin
+    .x1_{
+      .generate-items(20, '../../assets/3d/items/item1_', 'png');
+    }
+    // 项目1 end
+    // 项目2 begin
+    .x2_{
+      .generate-items(20, '../../assets/3d/items/item2_', 'png');
+    }
+    // 项目2 end
+    // 项目3 begin
+    .x3_{
+      .generate-items(20, '../../assets/3d/items/item3_', 'png');
+    }
+    // 项目3 end
+    // 项目4 begin
+    .x4_{
+      .generate-items(20, '../../assets/3d/items/item4_', 'png');
+    }
+    // 项目4 end
+    // 项目5 begin
+    .x5_{
+      .generate-items(20, '../../assets/3d/items/item5_', 'png');
+    }
+    // 项目5 end
+    // 项目6 begin
+    .x6_{
+      .generate-items(20, '../../assets/3d/items/item6_', 'png');
+    }
+    // 项目6 end
+    // 项目7 begin
+    .x7_{
+      .generate-items(20, '../../assets/3d/items/new/item7_', 'png');
+    }
+    // 项目7 end
+    // 点击区-击剑 begin
+    .click_jijian{
+      background: url('../../assets/triangle0.png') no-repeat 50% 50% rgba(255,255,255,0);
+      background-size: 30% auto;
+    }
+    .click_jijian_txt{
+      background: url('../../assets/3d/txt/0.png') no-repeat 68% 40% rgba(255,255,255,0);
+      background-size: 32% auto;
+      .animation(zoomzoom 1250ms ease-in-out infinite);
+    }
+    // 点击区-击剑 end
+    // 点击区-乒乓球 begin
+    .click_pingpang{
+      background: url('../../assets/triangle0.png') no-repeat 50% 50% rgba(255,255,255,0);
+      background-size: 30% auto;
+    }
+    .click_pingpang_txt{
+      background: url('../../assets/3d/txt/1.png') no-repeat 76% 46% rgba(255,255,255,0);
+      background-size: 32% auto;
+      .animation(zoomzoom 1350ms ease-in-out infinite);
+    }
+    // 点击区-乒乓球 end
+    // 点击区-跳水 begin
+    .click_tiaoshui{
+      background: url('../../assets/triangle0.png') no-repeat 20% 50% rgba(255,255,255,0);
+      background-size: 60% auto;
+    }
+    .click_tiaoshui_txt{
+      background: url('../../assets/3d/txt/7.png') no-repeat 90% 46% rgba(255,255,255,0);
+      background-size: 60% auto;
+      .animation(zoomzoom 1450ms ease-in-out infinite);
+    }
+    // 点击区-跳水 end
+    // 点击区-游泳 begin
+    .click_youyong{
+      background: url('../../assets/triangle0.png') no-repeat 20% 50% rgba(255,255,255,0);
+      background-size: 60% auto;
+    }
+    .click_youyong_txt{
+      background: url('../../assets/3d/txt/9.png') no-repeat 90% 46% rgba(255,255,255,0);
+      background-size: 60% auto;
+      .animation(zoomzoom 1550ms ease-in-out infinite);
+    }
+    // 点击区-游泳 end
+    // 点击区-体操 begin
+    .click_ticao{
+      background: url('../../assets/triangle0.png') no-repeat 15% 50% rgba(255,255,255,0);
+      background-size: 60% auto;
+    }
+    .click_ticao_txt{
+      background: url('../../assets/3d/txt/4.png') no-repeat 92% 40% rgba(255,255,255,0);
+      background-size: 60% auto;
+      .animation(zoomzoom 1650ms ease-in-out infinite);
+    }
+    // 点击区-体操 end
+    // 点击区-羽毛球 begin
+    .click_yumaoqiu{
+      background: url('../../assets/triangle0.png') no-repeat 0% 50% rgba(255,255,255,0);
+      background-size: 60% auto;
+    }
+    .click_yumaoqiu_txt{
+      background: url('../../assets/3d/txt/2.png') no-repeat 60% 82% rgba(255,255,255,0);
+      background-size: 60% auto;
+      .animation(zoomzoom 1750ms ease-in-out infinite);
+    }
+    // 点击区-羽毛球 end
+    // 点击区-举重 begin
+    .click_juzhong{
+      background: url('../../assets/triangle0.png') no-repeat 20% 50% rgba(255,255,255,0);
+      background-size: 30% auto;
+    }
+    .click_juzhong_txt{
+      background: url('../../assets/3d/txt/5.png') no-repeat 40% 50% rgba(255,255,255,0);
+      background-size: 30% auto;
+      .animation(zoomzoom 1850ms ease-in-out infinite);
+    }
+    // 点击区-举重 end
+    // 点击区-射击 begin
+    .click_sheji{
+      background: url('../../assets/triangle0.png') no-repeat 20% 50% rgba(255,255,255,0);
+      background-size: 30% auto;
+    }
+    .click_sheji_txt{
+      background: url('../../assets/3d/txt/6.png') no-repeat 40% 43% rgba(255,255,255,0);
+      background-size: 30% auto;
+      .animation(zoomzoom 1950ms ease-in-out infinite);
+    }
+    // 点击区-射击 end
+    // 点击区-综合 begin
+    .click_zonghe{
+      background: url('../../assets/triangle0.png') no-repeat 20% 50% rgba(255,255,255,0);
+      background-size: 30% auto;
+    }
+    .click_zonghe_txt{
+      background: url('../../assets/3d/txt/8.png') no-repeat 40% 50% rgba(255,255,255,0);
+      background-size: 30% auto;
+      .animation(zoomzoom 2050ms ease-in-out infinite);
+    }
+    // 点击区-综合 end
+    // 点击区动画 begin
+    @keyframes zoomzoom {
+      0%,100%{
+        opacity: 1;
+      }
+      50%{
+        opacity: .85;
+      }
+    }
+    // 点击区动画 end
+}
