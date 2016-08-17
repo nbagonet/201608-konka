@@ -1,0 +1,202 @@
+@import '../../less/config.less';
+
+.kangkang-jiajia
+{
+    z-index: 9999;
+
+    background-color: rgba(100,100,100,.85);
+
+    .fixed(0,0,0,0);
+    &.fade-transition
+    {
+        transition: all .3s ease;
+
+        opacity: 1;
+    }
+    &.fade-enter,
+    &.fade-leave
+    {
+        opacity: 0;
+    }
+    &,
+    .kangkang,
+    .jiajia
+    {
+        .translateZ(0);
+        backface-visibility: hidden;
+        perspective: 1000;
+    }
+    // 康康 begin
+    .kangkang
+    {
+        z-index: 100;
+
+        background-image: url('../../assets/kangkang.png');
+        background-repeat: no-repeat;
+        background-position: @kkw*0 50%;
+        background-size: 1600rem/@r 200rem/@r;
+
+        @kkw: -200rem/@r;
+        .absolute(50%,_,_,50%);
+        .size(200rem/@r,200rem/@r);
+        .margin(-100rem/@r,_,_,-240rem/@r);
+        .scale(1.5);
+        .animation(kangkang 1500ms steps(1) infinite);
+        @keyframes kangkang
+        {
+            0%
+            {
+                background-position: @kkw*0 50%;
+            }
+            12.5%
+            {
+                background-position: @kkw*1 50%;
+            }
+            25%
+            {
+                background-position: @kkw*2 50%;
+            }
+            37.5%
+            {
+                background-position: @kkw*3 50%;
+            }
+            50%
+            {
+                background-position: @kkw*4 50%;
+            }
+            62.5%
+            {
+                background-position: @kkw*5 50%;
+            }
+            75%
+            {
+                background-position: @kkw*6 50%;
+            }
+            87.5%
+            {
+                background-position: @kkw*7 50%;
+            }
+            100%
+            {
+                background-position: @kkw*0 50%;
+            }
+        }
+    }
+    // 康康 end
+    // 佳佳 begin
+    .jiajia
+    {
+        z-index: 100;
+
+        background-image: url('../../assets/jiajia.png');
+        background-repeat: no-repeat;
+        background-position: @jjw*0 50%;
+        background-size: 1400rem/@r 175rem/@r;
+
+        @jjw: -175rem/@r;
+        .absolute(50%,_,_,50%);
+        .size(175rem/@r,175rem/@r);
+        .margin(-87.5rem/@r,_,_,50rem/@r);
+        .scale(1.5);
+        .animation(jiajia 1500ms steps(1) infinite);
+        @keyframes jiajia
+        {
+            0%
+            {
+                background-position: @jjw*0 50%;
+            }
+            12.5%
+            {
+                background-position: @jjw*1 50%;
+            }
+            25%
+            {
+                background-position: @jjw*2 50%;
+            }
+            37.5%
+            {
+                background-position: @jjw*3 50%;
+            }
+            50%
+            {
+                background-position: @jjw*4 50%;
+            }
+            62.5%
+            {
+                background-position: @jjw*5 50%;
+            }
+            75%
+            {
+                background-position: @jjw*6 50%;
+            }
+            87.5%
+            {
+                background-position: @jjw*7 50%;
+            }
+            100%
+            {
+                background-position: @jjw*0 50%;
+            }
+        }
+    }
+    // 佳佳 end
+    // 歌词 begin
+    .lyrics
+    {
+        z-index: 100;
+
+        overflow: hidden;
+
+        .absolute(_,0,50rem/@r,0);
+        .size(100%,50rem/@r);
+        > div
+        {
+            background-repeat: no-repeat;
+            background-position: 0% 50%;
+            background-size: auto 100%;
+            .absolute(_,_,0,0);
+            opacity: 0;
+        }
+        .generate-lyrics(8);
+        .lyrics-0-0,.lyrics-0-1{
+          .size(344rem/@r,35rem/@r);
+        }
+        .lyrics-1-0,.lyrics-1-1{
+          .size(389rem/@r,33rem/@r);
+        }
+        .lyrics-2-0,.lyrics-2-1{
+          .size(431rem/@r,33rem/@r);
+        }
+        .lyrics-3-0,.lyrics-3-1{
+          .size(432rem/@r,36rem/@r);
+        }
+        .lyrics-4-0,.lyrics-4-1{
+          .size(511rem/@r,34rem/@r);
+        }
+        .lyrics-5-0,.lyrics-5-1{
+          .size(329rem/@r,34rem/@r);
+        }
+        .lyrics-6-0,.lyrics-6-1{
+          .size(328rem/@r,33rem/@r);
+        }
+        .lyrics-7-0,.lyrics-7-1{
+          .size(328rem/@r,35rem/@r);
+        }
+        .lyrics-8-0,.lyrics-8-1{
+          .size(329rem/@r,34rem/@r);
+        }
+    }
+    // 歌词 end
+}
+.generate-lyrics(@n, @i: 0) when (@i =< @n) {
+  .lyrics-@{i}-0 {
+    background-image: url('../../assets/lyrics/new/@{i}-0.png');
+    z-index: 100;
+  }
+  .lyrics-@{i}-1 {
+    background-image: url('../../assets/lyrics/new/@{i}-1.png');
+    z-index: 101;
+    width: 0;
+  }
+  .generate-lyrics(@n, (@i + 1));
+}

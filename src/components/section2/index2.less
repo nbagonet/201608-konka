@@ -1,11 +1,11 @@
 @import '../../less/config.less';
 
-.generate-items(@n, @prefix, @suffix, @i: 1) when (@i =< @n) {
+.generate-items(@start, @end, @prefix, @suffix, @i: @start) when (@i =< @end) {
   &@{i} {
     background: url('@{prefix}@{i}.@{suffix}') no-repeat;
     background-size: 100% 100%;
   }
-  .generate-items(@n, @prefix, @suffix, (@i + 1));
+  .generate-items(@start, @end, @prefix, @suffix, (@i + 1));
 }
 
 #section2
@@ -27,57 +27,72 @@
     }
     // 背景 begin
     .bg_{
-      .generate-items(20, '../../assets/3d/bg/bg_', 'jpg');
+      .generate-items(1, 20, '../../assets/3d/bg1/bg_', 'jpg');
     }
     // 背景 end
     // 星星 begin
-    .star_{
-      .generate-items(20, '../../assets/3d/star/star_', 'png');
-    }
+    // .star_{
+    //   .generate-items(1, 5, '../../assets/3d/star/new/star_', 'png');
+    // }
+    // .star_{
+    //   .generate-items(7, 10, '../../assets/3d/star/new/star_', 'png');
+    // }
+    // .star_{
+    //   .generate-items(12, 20, '../../assets/3d/star/new/star_', 'png');
+    // }
     // 星星 end
     // 云彩 begin
-    .cloud_{
-      .generate-items(20, '../../assets/3d/cloud/cloud_', 'png');
-    }
+    // .cloud_{
+    //   .generate-items(1, 15, '../../assets/3d/cloud/new/cloud_', 'png');
+    // }
+    // .cloud_{
+    //   .generate-items(18, 20, '../../assets/3d/cloud/cloud_', 'png');
+    // }
     // 云彩 end
     // 项目0 begin
     .x0_{
-      .generate-items(20, '../../assets/3d/items/item0_', 'png');
+      .generate-items(14, 20, '../../assets/3d/items/new/item0_', 'png');
     }
     // 项目0 end
     // 项目1 begin
     .x1_{
-      .generate-items(20, '../../assets/3d/items/item1_', 'png');
+      .generate-items(5, 16, '../../assets/3d/items/new/item1_', 'png');
     }
     // 项目1 end
     // 项目2 begin
     .x2_{
-      .generate-items(20, '../../assets/3d/items/item2_', 'png');
+      .generate-items(7, 14, '../../assets/3d/items/new/item2_', 'png');
     }
     // 项目2 end
     // 项目3 begin
     .x3_{
-      .generate-items(20, '../../assets/3d/items/item3_', 'png');
+      .generate-items(1, 7, '../../assets/3d/items/new/item3_', 'png');
     }
     // 项目3 end
     // 项目4 begin
     .x4_{
-      .generate-items(20, '../../assets/3d/items/item4_', 'png');
+      .generate-items(4, 7, '../../assets/3d/items/new/item4_', 'png');
     }
     // 项目4 end
     // 项目5 begin
     .x5_{
-      .generate-items(20, '../../assets/3d/items/item5_', 'png');
+      .generate-items(1, 8, '../../assets/3d/items/new/item5_', 'png');
     }
     // 项目5 end
     // 项目6 begin
     .x6_{
-      .generate-items(20, '../../assets/3d/items/item6_', 'png');
+      .generate-items(7, 9, '../../assets/3d/items/new/item6_', 'png');
+    }
+    .x6_{
+      .generate-items(13, 15, '../../assets/3d/items/new/item6_', 'png');
+    }
+    .x6_{
+      .generate-items(17, 18, '../../assets/3d/items/new/item6_', 'png');
     }
     // 项目6 end
     // 项目7 begin
     .x7_{
-      .generate-items(20, '../../assets/3d/items/new/item7_', 'png');
+      .generate-items(11, 16, '../../assets/3d/items/new/item7_', 'png');
     }
     // 项目7 end
     // 点击区-击剑 begin
@@ -86,7 +101,7 @@
       background-size: 30% auto;
     }
     .click_jijian_txt{
-      background: url('../../assets/3d/txt/0.png') no-repeat 68% 40% rgba(255,255,255,0);
+      background: url('../../assets/3d/txt/0.png') no-repeat 65% 35% rgba(255,255,255,0);
       background-size: 32% auto;
       .animation(zoomzoom 1250ms ease-in-out infinite);
     }

@@ -5,6 +5,7 @@
 
 <style lang="less">
 @import './App.less';
+// @import './components/section2/index2.less';
 </style>
 
 <script>

@@ -46,7 +46,7 @@ const configWX = (data) => {
  * @param  {object} conf 分享配置
  */
 const setWXShare = (conf) => {
-  console.log('设置微信分享内容：', conf)
+  // console.log('设置微信分享内容：', conf)
   window.wx.onMenuShareTimeline({
     title: conf.title,
     desc: conf.desc,

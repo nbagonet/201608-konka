@@ -1,3 +1,5 @@
+import store from '../store.js'
+
 const THREE = window.THREE
 const $ = window.$
 
@@ -22,8 +24,8 @@ const init3D = () => {
   let controls
   const target = new THREE.Vector3()
 
-  let lon = 240
-  let lat = 0
+  let lon = 245
+  let lat = 5
   let phi = 0
   let theta = 0
 
@@ -89,30 +91,6 @@ const init3D = () => {
       }
       items.push(bg)
       // 背景 end
-      // 星星 begin
-      let starWidth = itemWidth * 1.0
-      let starItemDistance = itemDistance(starWidth)
-      let star = {
-        tag: '星星' + -(j - itemNum),
-        name: 'star_' + -(j - itemNum),
-        size: [ starWidth, itemHeight ],
-        position: [ calcOffset(itemNum, starItemDistance, j).x, calcOffset(itemNum, starItemDistance, j).y, calcOffset(itemNum, starItemDistance, j).z ],
-        rotation: [ 0, calcOffset(itemNum, starItemDistance, j).r, 0 ]
-      }
-      items.push(star)
-      // 星星 end
-      // 云彩 begin
-      let cloudWidth = itemWidth * 0.99
-      let cloudItemDistance = itemDistance(cloudWidth)
-      let cloud = {
-        tag: '云彩' + -(j - itemNum),
-        name: 'cloud_' + -(j - itemNum),
-        size: [ cloudWidth, itemHeight ],
-        position: [ calcOffset(itemNum, cloudItemDistance, j).x, calcOffset(itemNum, cloudItemDistance, j).y, calcOffset(itemNum, cloudItemDistance, j).z ],
-        rotation: [ 0, calcOffset(itemNum, cloudItemDistance, j).r, 0 ]
-      }
-      items.push(cloud)
-      // 云彩 end
       // 项目0 begin
       if (-(j - itemNum) >= 14 && -(j - itemNum) <= 20) {
         let x0Width = itemWidth * 0.90
@@ -240,7 +218,7 @@ const init3D = () => {
           tag: '击剑点击区文字',
           name: 'click_jijian_txt',
           size: [ x2ClickWidth, x2ClickWidth * 0.5 ],
-          position: [ calcOffset(itemNum, x2ClickItemDistance, j).x * 0.35, calcOffset(itemNum, x2ClickItemDistance, j).y * 1.2, calcOffset(itemNum, x2ClickItemDistance, j).z * 0.26 ],
+          position: [ calcOffset(itemNum, x2ClickItemDistance, j).x * 0.35, calcOffset(itemNum, x2ClickItemDistance, j).y * 1.2, calcOffset(itemNum, x2ClickItemDistance, j).z * 0.27 ],
           rotation: [ 0, calcOffset(itemNum, x2ClickItemDistance, j).r, 0 ]
         }
         items.push(x2Click)
@@ -444,7 +422,9 @@ const init3D = () => {
     // 渲染 begin
     renderer = new THREE.CSS3DRenderer()
     renderer.setSize(_winSize[0], _winSize[1])
-    document.getElementById('section2').appendChild(renderer.domElement)
+    document.getElementById('s3D').appendChild(renderer.domElement)
+    // renderer.render(scene, camera)
+    animate2()
     // 渲染 end
 
     // 窗口尺寸改变 begin
@@ -452,16 +432,6 @@ const init3D = () => {
       onWindowResize()
     })
     // 窗口尺寸改变 end
-
-    $(document).on('mousedown', function (event) {
-      onDocumentMouseDown(event)
-    }).on('touchstart', function (event) {
-      onDocumentTouchStart(event)
-    }).on('touchmove', function (event) {
-      onDocumentTouchMove(event)
-    }).on('touchend', function (event) {
-      onDocumentTouchEnd(event)
-    })
   }
 
   function onWindowResize () {
@@ -473,27 +443,27 @@ const init3D = () => {
     renderer.setSize($(window).width(), $(window).height())
   }
 
-  function onDocumentMouseDown (event) {
-    event.preventDefault()
-
-    $(document).on('mousemove', function (event) {
-      onDocumentMouseMove(event)
-    }).on('mouseup', function (event) {
-      onDocumentMouseUp(event)
-    })
-  }
-
-  function onDocumentMouseMove (event) {
-    let movementX = event.movementX || event.mozMovementX || event.webkitMovementX || 0
-    let movementY = event.movementY || event.mozMovementY || event.webkitMovementY || 0
-
-    lon -= movementX * 0.2
-    lat += movementY * 0.2
-  }
-
-  function onDocumentMouseUp (event) {
-    $(document).off('mousemove mouseup')
-  }
+  // function onDocumentMouseDown (event) {
+  //   event.preventDefault()
+  //
+  //   $(document).on('mousemove', function (event) {
+  //     onDocumentMouseMove(event)
+  //   }).on('mouseup', function (event) {
+  //     onDocumentMouseUp(event)
+  //   })
+  // }
+  //
+  // function onDocumentMouseMove (event) {
+  //   let movementX = event.movementX || event.mozMovementX || event.webkitMovementX || 0
+  //   let movementY = event.movementY || event.mozMovementY || event.webkitMovementY || 0
+  //
+  //   lon -= movementX * 0.1
+  //   lat += movementY * 0.1
+  // }
+  //
+  // function onDocumentMouseUp (event) {
+  //   $(document).off('mousemove mouseup')
+  // }
 
   window.touch3D = false
   function onDocumentTouchStart (event) {
@@ -512,8 +482,8 @@ const init3D = () => {
 
     const touch = event.touches[0]
 
-    lon -= (touch.screenX - touchX) * 0.2
-    lat += (touch.screenY - touchY) * 0.2
+    lon -= (touch.screenX - touchX) * 0.1
+    lat += (touch.screenY - touchY) * 0.1
 
     touchX = touch.screenX
     touchY = touch.screenY
@@ -529,38 +499,47 @@ const init3D = () => {
         // 击剑
         case 'click_jijian':
           console.log('击剑')
+          changeQA(5, true)
           break
         // 乒乓球
         case 'click_pingpang':
           console.log('乒乓球')
+          changeQA(8, true)
           break
         // 跳水
         case 'click_tiaoshui':
           console.log('跳水')
+          changeQA(3, true)
           break
         // 游泳
-        case 'click_游泳':
+        case 'click_youyong':
           console.log('游泳')
+          changeQA(10, true)
           break
         // 体操
         case 'click_ticao':
           console.log('体操')
+          changeQA(4, true)
           break
         // 羽毛球
         case 'click_yumaoqiu':
           console.log('羽毛球')
+          changeQA(9, true)
           break
         // 射击
         case 'click_sheji':
           console.log('射击')
+          changeQA(2, true)
           break
         // 举重
         case 'click_juzhong':
           console.log('举重')
+          changeQA(1, true)
           break
         // 综合
         case 'click_zonghe':
           console.log('综合')
+          changeQA(6, true)
           break
       }
     }
@@ -568,19 +547,14 @@ const init3D = () => {
   }
 
   // ========== begin
-  let _lon = 0
-  function animate () {
-    lon += _lon
-    lat = Math.max(-85, Math.min(85, lat))
+
+  function animate2 () {
+    lon += 0
+    lat = Math.max(-15, Math.min(15, lat))
     phi = THREE.Math.degToRad(90 - lat)
     theta = THREE.Math.degToRad(lon)
 
-    window.requestAnimationFrame(animate)
-    // if (lon < 100) {
-    //   window.requestAnimationFrame(animate)
-    // } else {
-    //   window.requestAnimationFrame(animate2)
-    // }
+    window.requestAnimationFrame(animate2)
 
     target.x = Math.sin(phi) * Math.cos(theta)
     target.y = Math.cos(phi)
@@ -588,57 +562,102 @@ const init3D = () => {
 
     camera.lookAt(target)
 
-    // controls.update()
+    // 安卓X5内核不使用重力感应 begin
+    if (navigator.userAgent.indexOf('MQQBrowser') > -1) {
+      if (!window.bind3DEvt) {
+        $(document).on('touchstart', function (event) {
+          onDocumentTouchStart(event)
+        }).on('touchmove', function (event) {
+          onDocumentTouchMove(event)
+        }).on('touchend', function (event) {
+          onDocumentTouchEnd(event)
+        })
+        window.bind3DEvt = true
+      }
+    } else {
+      if (!window.bind3DEvt) {
+        $(document).on('touchend', function (event) {
+          onDocumentTouchEnd(event)
+        })
+        window.bind3DEvt = true
+      }
+      controls.update()
+    }
+    // 安卓X5内核不使用重力感应 end
 
     renderer.render(scene, camera)
   }
-
-  // function animate2 () {
-  //   if (_lon > 0) {
-  //     _lon = _lon - 1
-  //   } else {
-  //     _lon = 0
-  //   }
-  //   lon += _lon
-  //   lat = Math.max(-90, Math.min(90, lat))
-  //   phi = THREE.Math.degToRad(90 - lat)
-  //   theta = THREE.Math.degToRad(lon)
-  //
-  //   window.requestAnimationFrame(animate2)
-  //
-  //   target.x = Math.sin(phi) * Math.cos(theta)
-  //   target.y = Math.cos(phi)
-  //   target.z = Math.sin(phi) * Math.sin(theta)
-  //
-  //   camera.lookAt(target)
-  //
-  //   if (_lon <= 0) {
-  //     // 移动相关事件 begin
-  //     $(document).on('mousedown', function (event) {
-  //       onDocumentMouseDown(event)
-  //     }).on('touchstart', function (event) {
-  //       onDocumentTouchStart(event)
-  //     }).on('touchmove', function (event) {
-  //       onDocumentTouchMove(event)
-  //     })
-  //     // 移动相关事件 end
-  //
-  //     // controls.update(camera)
-  //   }
-  //
-  //   renderer.render(scene, camera)
-  // }
   // ========== end
 
   init()
-  animate()
-  console.log(controls)
+  // console.log(controls)
 }
 /**
  * 3D场景相关 end
  */
 
+const changeQA = (id, status) => {
+  store.dispatch('SET_QA_LOADING', status)
+
+  // window.alert(id)
+}
+
+const kalaok = () => {
+  const JT = window.JT
+  const JTL = window.JTL
+  const _tl = JTL.create()
+  const _ww = $(window).width()
+
+  function genLyrics (obj1, obj2, time, delay, cb) {
+    let _x = (_ww - $(obj1).width()) / 2
+    _tl.to(obj1, 0, {
+      opacity: 1,
+      x: _x
+    }, '+=' + delay)
+    _tl.fromTo(obj2, time, {
+      opacity: 1,
+      width: 0,
+      x: _x
+    }, {
+      opacity: 1,
+      x: _x,
+      width: $(obj2).width(),
+      onEnd: function () {
+        JT.set(obj1, { opacity: 0 })
+        JT.set(obj2, { opacity: 0 })
+        if (typeof cb === 'function') {
+          cb.call(this)
+        }
+      }
+    }, '+=' + delay)
+  }
+
+  genLyrics('.lyrics-0-0', '.lyrics-0-1', 2, 1)
+  genLyrics('.lyrics-1-0', '.lyrics-1-1', 2, 3)
+  genLyrics('.lyrics-2-0', '.lyrics-2-1', 2, 5)
+  genLyrics('.lyrics-3-0', '.lyrics-3-1', 2, 7)
+  genLyrics('.lyrics-4-0', '.lyrics-4-1', 2, 9)
+  genLyrics('.lyrics-5-0', '.lyrics-5-1', 2, 11)
+  genLyrics('.lyrics-6-0', '.lyrics-6-1', 2, 13)
+  genLyrics('.lyrics-7-0', '.lyrics-7-1', 2, 15)
+  genLyrics('.lyrics-8-0', '.lyrics-8-1', 2, 17, function () {
+    // 隐藏康康佳佳
+    store.dispatch('SET_KKJJ', false)
+  })
+  _tl.play()
+}
+
 export const init = ({ dispatch, state }) => {
   // 初始化3D场景
   init3D()
+  // 更换背景音乐
+  // const _bgm = document.getElementById('bgm-audio')
+  // _bgm.src = '../../../static/bgm1.mp3'
+  // if (document.querySelector('.play').style.display !== 'none') {
+  //   _bgm.play()
+  // }
+  // 显示康康佳佳
+  store.dispatch('SET_KKJJ', true)
+  // 卡拉OK效果
+  kalaok()
 }

@@ -18,7 +18,7 @@ export const init = ({ dispatch, state }) => {
   // 闪光 begin
   _tl.fromTo(_l, 0.5, {
     opacity: 1,
-    z: 200
+    z: 0
   }, {
     opacity: 0,
     ease: JT.Quad.Out
@@ -28,21 +28,21 @@ export const init = ({ dispatch, state }) => {
   // 背景 begin
   _tl.fromTo(_bg, 1, {
     opacity: 0,
-    z: 1
+    z: 200
   }, {
     opacity: 1,
     ease: JT.Quad.In
   })
-  _tl.fromTo(_bg, 30, {
-    scale: 1,
-    opacity: 1
-  }, {
-    scale: 1.5,
-    opacity: 1,
-    yoyo: true,
-    repeat: 'infinity',
-    ease: JT.Sine.InOut
-  }, '+=0.5')
+  // _tl.fromTo(_bg, 30, {
+  //   scale: 1,
+  //   opacity: 1
+  // }, {
+  //   scale: 1.5,
+  //   opacity: 1,
+  //   yoyo: true,
+  //   repeat: 'infinity',
+  //   ease: JT.Sine.InOut
+  // }, '+=0.5')
   // 背景 end
 
   // 电视0 begin
@@ -50,7 +50,7 @@ export const init = ({ dispatch, state }) => {
   const _tv0Y2 = _wH - $(_tv0).offset().top - $(_tv0).height()
   JT.set(_tv0, {
     bottom: _tv0Y,
-    z: 190
+    z: 0
   })
   _tl.fromTo(_tv0, 1, {
     opacity: 0.5,
@@ -73,6 +73,7 @@ export const init = ({ dispatch, state }) => {
   const _tv1Y = -$(_tv1).height()
   const _tv1Y2 = _wH - $(_tv1).offset().top - $(_tv1).height()
   JT.set(_tv1, {
+    zIndex: 1,
     bottom: _tv1Y,
     z: 185,
     scaleX: 213 / 419,
@@ -99,6 +100,7 @@ export const init = ({ dispatch, state }) => {
   const _tv2Y = -$(_tv2).height()
   const _tv2Y2 = _wH - $(_tv2).offset().top - $(_tv2).height()
   JT.set(_tv2, {
+    zIndex: 1,
     bottom: _tv2Y,
     z: 180,
     scaleX: 113 / 419,
@@ -196,7 +198,7 @@ export const init = ({ dispatch, state }) => {
       JT.killAll(true)
       dispatch('SET_SECTION_ID', 2)
     }
-  }, '+=4.8')
+  }, '+=5.0')
   // tv0居中放大 end
 
   // 播放 begin

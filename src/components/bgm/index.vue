@@ -1,8 +1,8 @@
 <template lang="jade">
   #bgm
-    audio#bgm-audio(src='../../../static/bgm.mp3' loop)
-    .btn.play(v-show='isPlaying' @click='pause')
-    .btn.pause(v-else @click='play')
+    audio#bgm-audio(src='' loop)
+    .btn.play(@click='pause')
+    .btn.pause(style="display:none" @click='play')
 </template>
 
 <style lang="less" scoped>
@@ -14,35 +14,33 @@ export default {
   name: 'bgm',
   vuex: {
     getters: {
-      autoPlay: state => state.BGMAutoPlay
+      section: state => state.section
     },
     actions: {}
   },
   components: {},
   data: function () {
-    return {
-      isPlaying: false
-    }
+    return {}
   },
   methods: {
     play: function () {
-      window.$('#bgm-audio')[0].play()
-      this.$set('isPlaying', true)
+      document.getElementById('bgm-audio').play()
+      document.querySelector('.play').style.display = ''
+      document.querySelector('.pause').style.display = 'none'
     },
     pause: function () {
-      window.$('#bgm-audio')[0].pause()
-      this.$set('isPlaying', false)
+      document.getElementById('bgm-audio').pause()
+      document.querySelector('.play').style.display = 'none'
+      document.querySelector('.pause').style.display = ''
     }
   },
   ready: function () {
     const _this = this
-
-    if (this.autoPlay) {
-      document.addEventListener('WeixinJSBridgeReady', function () {
-        _this.play()
-      })
+    document.getElementById('bgm-audio').src = '../../../static/bgm0.mp3'
+    document.addEventListener('WeixinJSBridgeReady', function () {
       _this.play()
-    }
+    })
+    _this.play()
   }
 }
 </script>
