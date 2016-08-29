@@ -1,6 +1,8 @@
 # 201608-konka
 
-> A Vue.js project
+> 此项目代码因赶进度，已烂成一锅粥。
+> 
+> TODO：有时间再做整理和优化。
 
 ## Build Setup
 
