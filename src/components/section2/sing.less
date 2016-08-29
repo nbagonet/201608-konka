@@ -2,11 +2,24 @@
 
 .kangkang-jiajia
 {
-    z-index: 9999;
+    z-index: 29999;
 
-    background-color: rgba(100,100,100,.85);
+    &:after{
+      content:'';
+      .fixed(0,0,0,0);
+      z-index: 1;
+      background-color: rgba(100,100,100,.85);
+      backdrop-filter: blur(5px);
+    }
+    background-image: url('../../assets/fake.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
 
     .fixed(0,0,0,0);
+    >div{
+      .translateZ(0);
+    }
     &.fade-transition
     {
         transition: all .3s ease;
@@ -26,10 +39,75 @@
         backface-visibility: hidden;
         perspective: 1000;
     }
+    // 走路 begin
+    .walk{
+      .size(210rem/@r*2,178rem/@r*2);
+      background-image: url('../../assets/dance/2-3.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      .animation(kjwalk 500ms steps(1) infinite);
+      .absolute(300rem/@r,_,_,100%);
+      z-index: 50;
+    }
+    @keyframes kjwalk{
+      0%,100%{
+        background-position: 0 0;
+      }
+      50%{
+        background-position: 0 -178rem/@r*2;
+      }
+    }
+    // 走路 end
+    // 扭腰 begin
+    .shake{
+      .size(215rem/@r*2,177rem/@r*2);
+      background-image: url('../../assets/dance/4-5-6.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      .animation(kjshake 500ms steps(1) infinite);
+      .absolute(315rem/@r,_,_,50%);
+      .margin(_,_,_,-215rem/@r);
+      z-index: 51;
+      opacity: 0;
+    }
+    @keyframes kjshake{
+      0%,100%{
+        background-position: 0 0;
+      }
+      33.3333%{
+        background-position: 0 -177rem/@r*4;
+      }
+      66.6667%{
+        background-position: 0 -177rem/@r*2;
+      }
+    }
+    // 扭腰 end
+    // 摇旗 begin
+    .shakeflag{
+      .size(407rem/@r*2,236rem/@r*2);
+      background-image: url('../../assets/dance/7-8.png');
+      background-repeat: no-repeat;
+      background-size: auto 200%;
+      .animation(kjflag 800ms steps(1) infinite);
+      .absolute(190rem/@r,_,_,50%);
+      .margin(_,_,_,-407rem/@r);
+      z-index: 52;
+      opacity: 0;
+    }
+    @keyframes kjflag{
+      0%,100%{
+        background-position: 100% 0;
+      }
+      50%{
+        background-position: 0% -236rem/@r*2;
+      }
+    }
+    // 摇旗 end
     // 康康 begin
     .kangkang
     {
         z-index: 100;
+        opacity: 0;
 
         background-image: url('../../assets/kangkang.png');
         background-repeat: no-repeat;
@@ -37,10 +115,10 @@
         background-size: 1600rem/@r 200rem/@r;
 
         @kkw: -200rem/@r;
-        .absolute(50%,_,_,50%);
+        .absolute(350rem/@r,_,_,50%);
         .size(200rem/@r,200rem/@r);
-        .margin(-100rem/@r,_,_,-240rem/@r);
-        .scale(1.5);
+        .margin(_,_,_,-210rem/@r);
+        .scale(2);
         .animation(kangkang 1500ms steps(1) infinite);
         @keyframes kangkang
         {
@@ -87,6 +165,7 @@
     .jiajia
     {
         z-index: 100;
+        opacity: 0;
 
         background-image: url('../../assets/jiajia.png');
         background-repeat: no-repeat;
@@ -94,10 +173,10 @@
         background-size: 1400rem/@r 175rem/@r;
 
         @jjw: -175rem/@r;
-        .absolute(50%,_,_,50%);
+        .absolute(400rem/@r,_,_,50%);
         .size(175rem/@r,175rem/@r);
-        .margin(-87.5rem/@r,_,_,50rem/@r);
-        .scale(1.5);
+        .margin(_,_,_,50rem/@r);
+        .scale(2);
         .animation(jiajia 1500ms steps(1) infinite);
         @keyframes jiajia
         {
@@ -141,14 +220,28 @@
     }
     // 佳佳 end
     // 歌词 begin
+    .lyrics-gif{
+      z-index: 100;
+      overflow: hidden;
+      .absolute(_,0,0,0);
+      // background: url('../../assets/lyrics/0.gif') no-repeat;
+      // background-size: cover;
+      .size(750rem/@r,112rem/@r);
+      img{
+        display: block;
+        .size(100%);
+        pointer-events: none;
+      }
+    }
     .lyrics
     {
         z-index: 100;
 
         overflow: hidden;
 
-        .absolute(_,0,50rem/@r,0);
+        .absolute(700rem/@r,0,_,0);
         .size(100%,50rem/@r);
+        .scale(1.3);
         > div
         {
             background-repeat: no-repeat;
@@ -159,34 +252,62 @@
         }
         .generate-lyrics(8);
         .lyrics-0-0,.lyrics-0-1{
-          .size(344rem/@r,35rem/@r);
+          width:173rem/@r*2;
+          height:18rem/@r*2;
         }
         .lyrics-1-0,.lyrics-1-1{
-          .size(389rem/@r,33rem/@r);
+          width:196rem/@r*2;
+          height:17rem/@r*2;
         }
         .lyrics-2-0,.lyrics-2-1{
-          .size(431rem/@r,33rem/@r);
+          width:216rem/@r*2;
+          height:17rem/@r*2;
         }
         .lyrics-3-0,.lyrics-3-1{
-          .size(432rem/@r,36rem/@r);
+          width:217rem/@r*2;
+          height:18rem/@r*2;
         }
         .lyrics-4-0,.lyrics-4-1{
-          .size(511rem/@r,34rem/@r);
+          width:256rem/@r*2;
+          height:18rem/@r*2;
         }
         .lyrics-5-0,.lyrics-5-1{
-          .size(329rem/@r,34rem/@r);
+          width:165rem/@r*2;
+          height:18rem/@r*2;
         }
         .lyrics-6-0,.lyrics-6-1{
-          .size(328rem/@r,33rem/@r);
+          width:185rem/@r*2;
+          height:18rem/@r*2;
         }
         .lyrics-7-0,.lyrics-7-1{
-          .size(328rem/@r,35rem/@r);
+          width:165rem/@r*2;
+          height:18rem/@r*2;
         }
         .lyrics-8-0,.lyrics-8-1{
-          .size(329rem/@r,34rem/@r);
+          width:165rem/@r*2;
+          height:17rem/@r*2;
         }
     }
     // 歌词 end
+    // 跳过按钮 begin
+    .skip{
+      .absolute(0,0,_,_);
+      .padding(30rem/@r);
+      z-index: 1000;
+      color: #fff;
+      font-size: 36rem/@r!important;
+      line-height: 1!important;
+    }
+    // 跳过按钮 end
+    // 玩法 begin
+    .rules{
+      .absolute(0,0,0,0);
+      z-index: 2000;
+      background: url('../../assets/rules.png') no-repeat 50% 50% rgba(0,0,0,.85);
+      background-size: 89.2% auto;
+      display: none;
+    }
+    // 玩法 end
 }
 .generate-lyrics(@n, @i: 0) when (@i =< @n) {
   .lyrics-@{i}-0 {

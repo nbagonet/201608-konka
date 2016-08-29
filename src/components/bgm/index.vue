@@ -1,6 +1,7 @@
 <template lang="jade">
-  #bgm
-    audio#bgm-audio(src='' loop)
+  #bgm(v-show='!kkjj')
+    audio#bgm-audio(src='../../../static/bgm0.mp3' preload loop)
+    //- audio#song-audio(src='../../../static/song.mp3' preload)
     .btn.play(@click='pause')
     .btn.pause(style="display:none" @click='play')
 </template>
@@ -14,7 +15,8 @@ export default {
   name: 'bgm',
   vuex: {
     getters: {
-      section: state => state.section
+      section: state => state.section,
+      kkjj: state => state.kkjj
     },
     actions: {}
   },
@@ -36,7 +38,7 @@ export default {
   },
   ready: function () {
     const _this = this
-    document.getElementById('bgm-audio').src = '../../../static/bgm0.mp3'
+    // document.getElementById('bgm-audio').src = '../../../static/bgm0.mp3'
     document.addEventListener('WeixinJSBridgeReady', function () {
       _this.play()
     })

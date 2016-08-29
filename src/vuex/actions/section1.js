@@ -12,8 +12,8 @@ export const init = ({ dispatch, state }) => {
   const _tv0 = '#section1-tv0'
   const _tv1 = '#section1-tv1'
   const _tv2 = '#section1-tv2'
-  const _txt0 = '#section1-txt0'
-  const _txt1 = '#section1-txt1'
+  // const _txt0 = '#section1-txt0'
+  // const _txt1 = '#section1-txt1'
 
   // 闪光 begin
   _tl.fromTo(_l, 0.5, {
@@ -46,27 +46,29 @@ export const init = ({ dispatch, state }) => {
   // 背景 end
 
   // 电视0 begin
-  const _tv0Y = -$(_tv0).height()
-  const _tv0Y2 = _wH - $(_tv0).offset().top - $(_tv0).height()
+  // const _tv0Y = -$(_tv0).height()
+  // const _tv0Y2 = _wH - $(_tv0).offset().top - $(_tv0).height()
   JT.set(_tv0, {
-    bottom: _tv0Y,
-    z: 0
+    bottom: -$(_tv0).height(),
+    z: 0,
+    scaleX: 1 / 6,
+    scaleY: 1 / 6
   })
   _tl.fromTo(_tv0, 1, {
     opacity: 0.5,
-    bottom: _tv0Y
+    bottom: -$(_tv0).height()
   }, {
     opacity: 1,
-    bottom: _tv0Y2,
+    bottom: 50,
     ease: JT.Quart.In
   }, '+=1.5')
-  _tl.fromTo(_tv0, 1, {
-    y: -5
-  }, {
-    y: 5,
-    yoyo: true,
-    repeat: 'infinity'
-  }, '+=2.5')
+  // _tl.fromTo(_tv0, 1, {
+  //   y: -5
+  // }, {
+  //   y: 5,
+  //   yoyo: true,
+  //   repeat: 'infinity'
+  // }, '+=2.5')
   // 电视0 end
 
   // 电视1 begin
@@ -123,82 +125,88 @@ export const init = ({ dispatch, state }) => {
   }, '+=2.3')
   // 电视2 end
 
-  // 文字0 begin
-  JT.set(_txt0, {
-    z: 195,
-    opacity: 0,
-    scaleX: 0,
-    scaleY: 0
-  })
-  _tl.fromTo(_txt0, 1, {
-    opacity: 0,
-    scaleX: 0,
-    scaleY: 0
-  }, {
-    opacity: 1,
-    scaleX: 2,
-    scaleY: 2,
-    ease: JT.Quad.InOut
-  }, '+=2.6')
-  _tl.fromTo(_txt0, 0.5, {
-    scaleX: 2,
-    scaleY: 2
-  }, {
-    scaleX: 1,
-    scaleY: 1,
-    ease: JT.Quad.InOut
-  }, '+=3.6')
-  // 文字0 end
-
-  // 文字1 begin
-  JT.set(_txt1, {
-    z: 193,
-    opacity: 0,
-    scaleX: 0,
-    scaleY: 0
-  })
-  _tl.fromTo(_txt1, 1, {
-    opacity: 0,
-    scaleX: 0,
-    scaleY: 0
-  }, {
-    opacity: 1,
-    scaleX: 2,
-    scaleY: 2,
-    ease: JT.Quad.InOut
-  }, '+=3.3')
-  _tl.fromTo(_txt1, 0.5, {
-    scaleX: 2,
-    scaleY: 2
-  }, {
-    scaleX: 1,
-    scaleY: 1,
-    ease: JT.Quad.InOut,
-    onEnd: function () {
-      JT.kill(_tv0)
-      JT.set(_tv0, {
-        bottom: _tv0Y2
-      })
-    }
-  }, '+=4.3')
-  // 文字1 end
+  // // 文字0 begin
+  // JT.set(_txt0, {
+  //   z: 195,
+  //   opacity: 0,
+  //   scaleX: 0,
+  //   scaleY: 0
+  // })
+  // _tl.fromTo(_txt0, 1, {
+  //   opacity: 0,
+  //   scaleX: 0,
+  //   scaleY: 0
+  // }, {
+  //   opacity: 1,
+  //   scaleX: 2,
+  //   scaleY: 2,
+  //   ease: JT.Quad.InOut
+  // }, '+=2.6')
+  // _tl.fromTo(_txt0, 0.5, {
+  //   scaleX: 2,
+  //   scaleY: 2
+  // }, {
+  //   scaleX: 1,
+  //   scaleY: 1,
+  //   ease: JT.Quad.InOut
+  // }, '+=3.6')
+  // // 文字0 end
+  //
+  // // 文字1 begin
+  // JT.set(_txt1, {
+  //   z: 193,
+  //   opacity: 0,
+  //   scaleX: 0,
+  //   scaleY: 0
+  // })
+  // _tl.fromTo(_txt1, 1, {
+  //   opacity: 0,
+  //   scaleX: 0,
+  //   scaleY: 0
+  // }, {
+  //   opacity: 1,
+  //   scaleX: 2,
+  //   scaleY: 2,
+  //   ease: JT.Quad.InOut
+  // }, '+=3.3')
+  // _tl.fromTo(_txt1, 0.5, {
+  //   scaleX: 2,
+  //   scaleY: 2
+  // }, {
+  //   scaleX: 1,
+  //   scaleY: 1,
+  //   ease: JT.Quad.InOut,
+  //   onEnd: function () {
+  //     JT.kill(_tv0)
+  //     JT.set(_tv0, {
+  //       bottom: _tv0Y2
+  //     })
+  //   }
+  // }, '+=4.3')
+  // // 文字1 end
 
   // tv0居中放大 begin
-  _tl.fromTo(_tv0, 1, {
+  _tl.fromTo(_tv0, 4, {
     zIndex: 30,
-    scaleX: 1,
-    scaleY: 1,
-    y: 0
+    scaleX: 1 / 6,
+    scaleY: 1 / 6,
+    y: 0,
+    z: 0,
+    x: 0
   }, {
-    y: 500,
+    y: 600 * 1.5,
+    z: 500 * 1.5,
+    x: -$(_tv0).width() * 7.5 / 2,
     zIndex: 30,
-    scaleX: 12,
-    scaleY: 12,
+    scaleX: 1.5,
+    scaleY: 1.5,
     onEnd: function () {
       JT.killAll(true)
-      dispatch('SET_SECTION_ID', 2)
+      setTimeout(() => {
+        dispatch('SET_SECTION_ID', 2)
+      }, 300)
     }
-  }, '+=5.0')
+  }, '+=3.6')
   // tv0居中放大 end
 
   // 播放 begin

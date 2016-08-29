@@ -1,0 +1,681 @@
+@import '../../less/config.less';
+@i: '../../assets/qa/';
+
+#qagame
+{
+    z-index: 4000;
+
+    .fixed(0,0,0,0);
+
+    // fade begin
+    .fade-transition
+    {
+        .transition(opacity .25s ease);
+    }
+    .fade-enter,
+    .fade-leave
+    {
+        opacity: 0;
+    }
+    // fade end
+
+    // 首页 begin
+    .qa-index
+    {
+        .size(100%);
+        .bg
+        {
+            z-index: 1;
+
+            background: url('@{i}bg_index.png') no-repeat 50% 100%;
+            background-size: 100% auto;
+
+            .absolute(0,0,0,0);
+        }
+        .btns
+        {
+            z-index: 100;
+
+            width: 620rem/@r;
+
+            .absolute(_,_,105rem/@r,50%);
+            .translate(-50%,0);
+            .display(flex);
+            flex-flow: row wrap;
+            > a
+            {
+                display: block;
+                overflow: hidden;
+
+                text-indent: -9999px;
+
+                background-repeat: no-repeat;
+                background-position: 0 0;
+                background-size: cover;
+
+                .size(300rem/@r,90rem/@r);
+                &:nth-child(2)
+                {
+                    .margin(_,_,_,20rem/@r);
+                }
+            }
+            .btn-start
+            {
+                background-image: url('@{i}btn_index_start.png');
+            }
+            .btn-rules
+            {
+                background-image: url('@{i}btn_index_rules.png');
+            }
+            .btn-back
+            {
+                width: 620rem/@r;
+
+                background-image: url('@{i}btn_back_b.png');
+
+                .margin(20rem/@r,_,_);
+            }
+        }
+    }
+    // 首页 end
+    // 规则浮层 begin
+    .qa-rules
+    {
+        z-index: 4100;
+
+        background-color: rgba(0,0,0,.85);
+
+        .fixed(0,0,0,0);
+        .display(flex);
+        .align-items(center);
+        .justify-content(center);
+        .popup
+        {
+            background: url('@{i}rules.png') no-repeat 0 0;
+            background-size: cover;
+
+            .size(317rem/@r*2,411rem/@r*2);
+        }
+    }
+    // 规则浮层 end
+    // 分享浮层 begin
+    .qa-share
+    {
+        z-index: 4100;
+
+        background-color: rgba(0,0,0,.85);
+
+        .fixed(0,0,0,0);
+        .display(flex);
+        .align-items(center);
+        .justify-content(center);
+        .popup
+        {
+            z-index: 100;
+
+            background: url('@{i}jiajia.png') no-repeat 0 0;
+            background-size: cover;
+
+            .size(120rem/@r*2,174rem/@r*2);
+            .absolute(85rem/@r,175rem/@r,_,_);
+            .rotate(20deg);
+            &:before
+            {
+                z-index: 100;
+
+                content: '';
+
+                background: url('@{i}share_txt.png') no-repeat;
+                background-size: cover;
+
+                .size(80rem/@r*2,36rem/@r*2);
+                .absolute(200rem/@r,_,_,-145rem/@r);
+                .rotate(-20deg);
+            }
+            &:after
+            {
+                z-index: 100;
+
+                content: '';
+
+                background: url('@{i}share_point.png') no-repeat;
+                background-size: cover;
+
+                .size(58rem/@r*2,71rem/@r*2);
+                .rotate(-20deg);
+                .absolute(-120rem/@r,_,_,190rem/@r);
+            }
+        }
+    }
+    // 分享浮层 end
+    // 无机会提示 begin
+    .qa-nochance
+    {
+        z-index: 51000;
+
+        &:after{
+          content:'';
+          .fixed(0,0,0,0);
+          z-index: 1;
+          background-color: rgba(0,0,0,.85);
+          backdrop-filter: blur(5px);
+        }
+        background-image: url('../../assets/fake.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50% 50%;
+
+        .fixed(0,0,0,0);
+        .display(flex);
+        .align-items(center);
+        .justify-content(center);
+        .popup
+        {
+            background: url('@{i}pop_nochance.png') no-repeat 0 0;
+            background-size: cover;
+
+            .size(299rem/@r*2,224rem/@r*2);
+            position: relative;
+            z-index: 100;
+        }
+    }
+    // 无机会提示 end
+    // 答题 begin
+    .qa-main
+    {
+        background: #000;
+
+        .size(100%);
+        // 背景 begin
+        .bg
+        {
+            z-index: 1;
+
+            background: url('@{i}bg_qa.png') no-repeat 50% 100%;
+            background-size: cover;
+
+            .absolute(0,0,0,0);
+        }
+        // 背景 end
+        .clock,
+        .title,
+        .question,
+        .answers,
+        .next
+        {
+            z-index: 100;
+
+            .box-sizing(border-box);
+        }
+        // 时钟 begin
+        .clock
+        {
+            line-height: 1;
+
+            text-align: center;
+
+            color: #90c346;
+            background: url('@{i}clock.png') no-repeat 0 0;
+            background-size: cover;
+
+            .size(103rem/@r,122rem/@r);
+            .absolute(43rem/@r,78rem/@r,_,_);
+            .padding(50rem/@r,_,_);
+            strong
+            {
+                font-size: 42rem/@r;
+                font-weight: normal;
+            }
+            small
+            {
+                font-size: 32rem/@r;
+            }
+        }
+        // 时钟 end
+        // 标题和序号 begin
+        .title
+        {
+            line-height: 1;
+
+            position: relative;
+
+            color: #bfd100;
+
+            .padding(95rem/@r,_,25rem/@r,40rem/@r);
+            .display(flex);
+            .align-items(center);
+            em
+            {
+                display: block;
+
+                background: url('@{i}title_0.png') no-repeat 0 0;
+                background-size: cover;
+
+                .size(93rem/@r,76rem/@r);
+            }
+            strong
+            {
+                font-size: 100rem/@r;
+
+                .margin(_,_,_,10rem/@r);
+            }
+        }
+        // 标题和序号 end
+        // 题干 begin
+        .question
+        {
+            font-size: 36rem/@r;
+            line-height: 52/36;
+
+            position: relative;
+
+            color: #fff;
+
+            .padding(0,40rem/@r,25rem/@r);
+        }
+        // 题干 end
+        // 选项 begin
+        .answers
+        {
+            position: relative;
+
+            .padding(_,40rem/@r);
+            ul
+            {
+                list-style: none;
+
+                .margin(0);
+                .padding(0);
+            }
+            li
+            {
+                display: block;
+
+                width: 100%;
+
+                .margin(_,_,17rem/@r);
+                .clearfix();
+                label
+                {
+                    font-size: 28rem/@r;
+                    line-height: 80rem/@r;
+
+                    background-repeat: no-repeat;
+                    background-position: 0 0;
+                    background-size: cover;
+
+                    .display(flex);
+                    .align-items(center);
+                    .box-sizing(border-box);
+                    .size(300rem/@r*2,47rem/@r*2);
+                    .padding(13rem/@r,_,_,70rem/@r);
+                    em
+                    {
+                        overflow: hidden;
+
+                        opacity: 0;
+                        background: url('@{i}checked.png') no-repeat 0 0;
+                        background-size: cover;
+
+                        .margin(_,15rem/@r,_,auto);
+                        .size(38rem/@r);
+                    }
+                    &.checked em
+                    {
+                        opacity: 1;
+                    }
+                }
+                input[type=radio]
+                {
+                    display: none;
+
+                    // pointer-events: none;
+                    & + em
+                    {
+                        overflow: hidden;
+
+                        opacity: 0;
+                        background: url('@{i}checked.png') no-repeat 0 0;
+                        background-size: cover;
+
+                        .margin(_,15rem/@r,_,auto);
+                        .size(38rem/@r);
+                    }
+                    &:checked + em
+                    {
+                        opacity: 1;
+                    }
+                }
+                &:nth-child(1),
+                &:nth-child(3)
+                {
+                    label
+                    {
+                        float: left;
+                    }
+                }
+                &:nth-child(2),
+                &:nth-child(4)
+                {
+                    label
+                    {
+                        float: right;
+                    }
+                }
+                &:nth-child(1)
+                {
+                    label
+                    {
+                        background-image: url('@{i}bg_a_a.png');
+                    }
+                }
+                &:nth-child(2)
+                {
+                    label
+                    {
+                        background-image: url('@{i}bg_a_b.png');
+                    }
+                }
+                &:nth-child(3)
+                {
+                    label
+                    {
+                        background-image: url('@{i}bg_a_c.png');
+                    }
+                }
+                &:nth-child(4)
+                {
+                    label
+                    {
+                        background-image: url('@{i}bg_a_d.png');
+                    }
+                }
+            }
+        }
+        // 选项 end
+        // 下一题按钮 begin
+        a.next
+        {
+            position: relative;
+
+            display: block;
+            overflow: hidden;
+
+            background: url('@{i}btn_next.png') no-repeat 0 0;
+            background-size: cover;
+
+            .margin(30rem/@r,40rem/@r,_,auto);
+            .size(200rem/@r,90rem/@r);
+        }
+        // 下一题按钮 end
+    }
+    // 答题 end
+    // 结果 begin
+    .qa-result
+    {
+        background-color: #000;
+
+        .size(100%);
+        // 背景 begin
+        .bg
+        {
+            z-index: 1;
+
+            background: url('@{i}bg_result.png') no-repeat 50% 100%;
+            background-size: cover;
+
+            .absolute(0,0,0,0);
+        }
+        // 背景 end
+        // 佳佳 begin
+        .qa-jiajia
+        {
+            z-index: 20;
+
+            background: url('@{i}jiajia.png') no-repeat;
+            background-size: cover;
+
+            .absolute(_,203rem/@r,603rem/@r,_);
+            .size(120rem/@r*2,174rem/@r*2);
+        }
+        .jiajia2
+        {
+            z-index: 20;
+
+            background: url('@{i}jiajia2.png') no-repeat;
+            background-size: cover;
+
+            .absolute(_,213rem/@r,603rem/@r,_);
+            .size(93rem/@r*2,171rem/@r*2);
+        }
+        // 佳佳 end
+        // 康康 begin
+        .qa-kangkang
+        {
+            z-index: 20;
+
+            background: url('@{i}kangkang.png') no-repeat;
+            background-size: cover;
+
+            .absolute(_,220rem/@r,525rem/@r,_);
+            .size(99rem/@r*2,201rem/@r*2);
+        }
+        // 康康 end
+        // pass begin
+        .mark_pass
+        {
+            z-index: 30;
+
+            background: url('@{i}mark_pass.png') no-repeat;
+            background-size: cover;
+
+            .absolute(_,10rem/@r,570rem/@r,_);
+            .size(117rem/@r*2,81rem/@r*2);
+        }
+        // pass end
+        // fail begin
+        .mark_fail
+        {
+            z-index: 30;
+
+            background: url('@{i}mark_fail.png') no-repeat;
+            background-size: cover;
+
+            .absolute(_,-20rem/@r,789rem/@r,_);
+            .size(165rem/@r*2,101rem/@r*2);
+        }
+        // fail end
+        // 超时 begin
+        .mark_timesup
+        {
+            z-index: 30;
+
+            background: url('@{i}mark_timesup.png') no-repeat;
+            background-size: cover;
+
+            .absolute(_,0,434rem/@r,_);
+            .size(183rem/@r*2,109rem/@r*2);
+        }
+        // 超时 end
+        // 文字 begin
+        .txt_0
+        {
+            z-index: 30;
+
+            background: url('@{i}txt_0.png') no-repeat;
+            background-size: cover;
+
+            .absolute(_,_,550rem/@r,35rem/@r);
+            .size(117rem/@r*2,36rem/@r*2);
+        }
+        .txt_1
+        {
+            z-index: 30;
+
+            background: url('@{i}txt_1.png') no-repeat;
+            background-size: cover;
+
+            .absolute(_,_,350rem/@r,35rem/@r);
+            .size(192rem/@r*2,61rem/@r*2);
+        }
+        .txt_2
+        {
+            z-index: 30;
+
+            background: url('@{i}txt_2.png') no-repeat;
+            background-size: cover;
+
+            .absolute(_,_,350rem/@r,35rem/@r);
+            .size(185rem/@r*2,84rem/@r*2);
+        }
+        // 文字 end
+        // 气泡 begin
+        .bubble_tv
+        {
+            z-index: 25;
+
+            background: url('@{i}bubble_tv.png') no-repeat;
+            background-size: cover;
+
+            .absolute(_,_,710rem/@r,10rem/@r);
+            .size(165rem/@r*2,122rem/@r*2);
+        }
+        .bubble_tickets
+        {
+            z-index: 25;
+
+            background: url('@{i}bubble_tickets.png') no-repeat;
+            background-size: cover;
+
+            .absolute(_,_,710rem/@r,10rem/@r);
+            .size(169rem/@r*2,129rem/@r*2);
+        }
+        .bubble_fail
+        {
+            z-index: 25;
+
+            background: url('@{i}bubble_fail.png') no-repeat;
+            background-size: cover;
+
+            .absolute(_,_,710rem/@r,10rem/@r);
+            .size(128rem/@r*2,110rem/@r*2);
+        }
+        .bubble_noaward
+        {
+            z-index: 25;
+
+            background: url('@{i}bubble_noaward.png') no-repeat;
+            background-size: cover;
+
+            .absolute(_,_,710rem/@r,10rem/@r);
+            .size(147rem/@r*2,118rem/@r*2);
+        }
+        .bubble_nolottery
+        {
+            z-index: 25;
+
+            background: url('@{i}bubble_nolottery.png') no-repeat;
+            background-size: cover;
+
+            .absolute(_,_,710rem/@r,10rem/@r);
+            .size(129rem/@r*2,105rem/@r*2);
+        }
+        .bubble_timesup
+        {
+            z-index: 25;
+
+            background: url('@{i}bubble_timesup.png') no-repeat;
+            background-size: cover;
+
+            .absolute(_,_,710rem/@r,10rem/@r);
+            .size(128rem/@r*2,110rem/@r*2);
+        }
+        // 气泡 end
+        // 中奖码 begin
+        .tip_tv,
+        .tip_tickets
+        {
+            font-size: 44rem/@r;
+
+            z-index: 10;
+
+            color: #333;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            .absolute(_,0,752rem/@r,_);
+            .size(174rem/@r*2,205rem/@r*2);
+        }
+        .tip_tickets
+        {
+            background-image: url('@{i}tip_tickets.png');
+        }
+        .tip_tv
+        {
+            background-image: url('@{i}tip_tv.png');
+        }
+        .tip_tv,
+        .tip_tickets
+        {
+            .code
+            {
+                font-weight: bold;
+
+                z-index: 10;
+
+                text-align: center;
+
+                .absolute(_,0,170rem/@r);
+                .transform(rotate(24deg) translate(12%,22%));
+            }
+        }
+        // 中奖码 end
+        // 按钮s begin
+        .btns
+        {
+            z-index: 100;
+
+            width: 310rem/@r*2;
+
+            .absolute(_,_,80vh/13.36,50%);
+            .translate(-50%,0);
+            .display(flex);
+            flex-flow: row wrap;
+            > a
+            {
+                overflow: hidden;
+
+                background-repeat: no-repeat;
+                background-size: cover;
+
+                .display(flex);
+                .size(150rem/@r*2,45rem/@r*2);
+                .margin(_,_,20rem/@r);
+                &:nth-child(1)
+                {
+                    .margin(_,auto,_,_);
+                }
+                &:nth-child(3)
+                {
+                    width: 310rem/@r*2;
+
+                    .margin(_,_,0);
+                }
+                &.btn-share
+                {
+                    background-image: url('@{i}btn_share.png');
+                }
+                &.btn-back
+                {
+                    background-image: url('@{i}btn_back.png');
+                }
+                &.btn-prize
+                {
+                    background-image: url('@{i}btn_getaward.png');
+                }
+            }
+        }
+        // 按钮s end
+    }
+    // 结果 end
+}

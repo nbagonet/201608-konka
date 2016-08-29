@@ -88,6 +88,13 @@ THREE.DeviceOrientationControls = function( object ) {
 		var gamma = scope.deviceOrientation.gamma ? THREE.Math.degToRad( scope.deviceOrientation.gamma ) : 0; // Y''
 		var orient = scope.screenOrientation ? THREE.Math.degToRad( scope.screenOrientation ) : 0; // O
 
+    // 限制beta
+    if (beta > 1.7) {
+      beta = 1.7
+    } else if (beta < 1.5) {
+      beta = 1.5
+    }
+
 		setObjectQuaternion( scope.object.quaternion, alpha, beta, gamma, orient );
 		this.alpha = alpha;
 

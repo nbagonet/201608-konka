@@ -14,8 +14,8 @@
         .land
 
     //- 文字
-    #section1-txt0
-    #section1-txt1
+    //- #section1-txt0
+    //- #section1-txt1
 </template>
 
 <style lang="less" scoped>

@@ -15,22 +15,22 @@ const updateWinSize = () => {
 }
 // const _sqrt2 = Math.SQRT2
 
-const init3D = () => {
+export const init3D = () => {
   updateWinSize()
 
   let camera
   let scene
   let renderer
   let controls
-  const target = new THREE.Vector3()
+  // const target = new THREE.Vector3()
 
-  let lon = 245
-  let lat = 5
-  let phi = 0
-  let theta = 0
+  // let lon = 245
+  // let lat = 5
+  // let phi = 0
+  // let theta = 0
 
-  let touchX
-  let touchY
+  // let touchX
+  // let touchY
 
   function init () {
     camera = new THREE.PerspectiveCamera(100, $(window).width() / $(window).height(), 1, 1000)
@@ -91,118 +91,118 @@ const init3D = () => {
       }
       items.push(bg)
       // 背景 end
-      // 项目0 begin
-      if (-(j - itemNum) >= 14 && -(j - itemNum) <= 20) {
-        let x0Width = itemWidth * 0.90
-        let x0ItemDistance = itemDistance(x0Width)
-        let x0 = {
-          tag: '项目0_' + -(j - itemNum),
-          name: 'x0_' + -(j - itemNum),
-          size: [ x0Width, itemHeight ],
-          position: [ calcOffset(itemNum, x0ItemDistance, j).x, calcOffset(itemNum, x0ItemDistance, j).y, calcOffset(itemNum, x0ItemDistance, j).z ],
-          rotation: [ 0, calcOffset(itemNum, x0ItemDistance, j).r, 0 ]
-        }
-        items.push(x0)
-      }
-      // 项目0 end
-      // 项目1 begin
-      if (-(j - itemNum) >= 4 && -(j - itemNum) <= 17) {
-        let x1Width = itemWidth * 0.85
-        let x1ItemDistance = itemDistance(x1Width)
-        let x1 = {
-          tag: '项目1_' + -(j - itemNum),
-          name: 'x1_' + -(j - itemNum),
-          size: [ x1Width, itemHeight ],
-          position: [ calcOffset(itemNum, x1ItemDistance, j).x, calcOffset(itemNum, x1ItemDistance, j).y, calcOffset(itemNum, x1ItemDistance, j).z ],
-          rotation: [ 0, calcOffset(itemNum, x1ItemDistance, j).r, 0 ]
-        }
-        items.push(x1)
-      }
-      // 项目1 end
-      // 项目2 begin
-      if (-(j - itemNum) >= 6 && -(j - itemNum) <= 15) {
-        let x2Width = itemWidth * 0.8
-        let x2ItemDistance = itemDistance(x2Width)
-        let x2 = {
-          tag: '项目2_' + -(j - itemNum),
-          name: 'x2_' + -(j - itemNum),
-          size: [ x2Width, itemHeight ],
-          position: [ calcOffset(itemNum, x2ItemDistance, j).x, calcOffset(itemNum, x2ItemDistance, j).y, calcOffset(itemNum, x2ItemDistance, j).z ],
-          rotation: [ 0, calcOffset(itemNum, x2ItemDistance, j).r, 0 ]
-        }
-        items.push(x2)
-      }
-      // 项目2 end
-      // 项目3 begin
-      if (-(j - itemNum) >= 0 && -(j - itemNum) <= 8) {
-        let x3Width = itemWidth * 0.95
-        let x3ItemDistance = itemDistance(x3Width)
-        let x3 = {
-          tag: '项目3_' + -(j - itemNum),
-          name: 'x3_' + -(j - itemNum),
-          size: [ x3Width, itemHeight ],
-          position: [ calcOffset(itemNum, x3ItemDistance, j).x, calcOffset(itemNum, x3ItemDistance, j).y, calcOffset(itemNum, x3ItemDistance, j).z ],
-          rotation: [ 0, calcOffset(itemNum, x3ItemDistance, j).r, 0 ]
-        }
-        items.push(x3)
-      }
-      // 项目3 end
-      // 项目4 begin
-      if (-(j - itemNum) >= 3 && -(j - itemNum) <= 8) {
-        let x4Width = itemWidth * 0.80
-        let x4ItemDistance = itemDistance(x4Width)
-        let x4 = {
-          tag: '项目4_' + -(j - itemNum),
-          name: 'x4_' + -(j - itemNum),
-          size: [ x4Width, itemHeight ],
-          position: [ calcOffset(itemNum, x4ItemDistance, j).x, calcOffset(itemNum, x4ItemDistance, j).y, calcOffset(itemNum, x4ItemDistance, j).z ],
-          rotation: [ 0, calcOffset(itemNum, x4ItemDistance, j).r, 0 ]
-        }
-        items.push(x4)
-      }
-      // 项目4 end
-      // 项目5 begin
-      if (-(j - itemNum) >= 1 && -(j - itemNum) <= 9) {
-        let x5Width = itemWidth * 0.75
-        let x5ItemDistance = itemDistance(x5Width)
-        let x5 = {
-          tag: '项目5_' + -(j - itemNum),
-          name: 'x5_' + -(j - itemNum),
-          size: [ x5Width, itemHeight ],
-          position: [ calcOffset(itemNum, x5ItemDistance, j).x, calcOffset(itemNum, x5ItemDistance, j).y, calcOffset(itemNum, x5ItemDistance, j).z ],
-          rotation: [ 0, calcOffset(itemNum, x5ItemDistance, j).r, 0 ]
-        }
-        items.push(x5)
-      }
-      // 项目5 end
-      // 项目6 begin
-      if ((-(j - itemNum) >= 6 && -(j - itemNum) <= 10) || (-(j - itemNum) >= 12 && -(j - itemNum) <= 19)) {
-        let x6Width = itemWidth * 0.65
-        let x6ItemDistance = itemDistance(x6Width)
-        let x6 = {
-          tag: '项目6_' + -(j - itemNum),
-          name: 'x6_' + -(j - itemNum),
-          size: [ x6Width, itemHeight ],
-          position: [ calcOffset(itemNum, x6ItemDistance, j).x, calcOffset(itemNum, x6ItemDistance, j).y, calcOffset(itemNum, x6ItemDistance, j).z ],
-          rotation: [ 0, calcOffset(itemNum, x6ItemDistance, j).r, 0 ]
-        }
-        items.push(x6)
-      }
-      // 项目6 end
-      // 项目6 begin
-      if (-(j - itemNum) >= 10 && -(j - itemNum) <= 17) {
-        let x7Width = itemWidth * 0.60
-        let x7ItemDistance = itemDistance(x7Width)
-        let x7 = {
-          tag: '项目7_' + -(j - itemNum),
-          name: 'x7_' + -(j - itemNum),
-          size: [ x7Width, itemHeight ],
-          position: [ calcOffset(itemNum, x7ItemDistance, j).x, calcOffset(itemNum, x7ItemDistance, j).y, calcOffset(itemNum, x7ItemDistance, j).z ],
-          rotation: [ 0, calcOffset(itemNum, x7ItemDistance, j).r, 0 ]
-        }
-        items.push(x7)
-      }
-      // 项目6 end
+      // // 项目0 begin
+      // if (-(j - itemNum) >= 14 && -(j - itemNum) <= 20) {
+      //   let x0Width = itemWidth * 0.90
+      //   let x0ItemDistance = itemDistance(x0Width)
+      //   let x0 = {
+      //     tag: '项目0_' + -(j - itemNum),
+      //     name: 'x0_' + -(j - itemNum),
+      //     size: [ x0Width, itemHeight ],
+      //     position: [ calcOffset(itemNum, x0ItemDistance, j).x, calcOffset(itemNum, x0ItemDistance, j).y, calcOffset(itemNum, x0ItemDistance, j).z ],
+      //     rotation: [ 0, calcOffset(itemNum, x0ItemDistance, j).r, 0 ]
+      //   }
+      //   items.push(x0)
+      // }
+      // // 项目0 end
+      // // 项目1 begin
+      // if (-(j - itemNum) >= 4 && -(j - itemNum) <= 17) {
+      //   let x1Width = itemWidth * 0.85
+      //   let x1ItemDistance = itemDistance(x1Width)
+      //   let x1 = {
+      //     tag: '项目1_' + -(j - itemNum),
+      //     name: 'x1_' + -(j - itemNum),
+      //     size: [ x1Width, itemHeight ],
+      //     position: [ calcOffset(itemNum, x1ItemDistance, j).x, calcOffset(itemNum, x1ItemDistance, j).y, calcOffset(itemNum, x1ItemDistance, j).z ],
+      //     rotation: [ 0, calcOffset(itemNum, x1ItemDistance, j).r, 0 ]
+      //   }
+      //   items.push(x1)
+      // }
+      // // 项目1 end
+      // // 项目2 begin
+      // if (-(j - itemNum) >= 6 && -(j - itemNum) <= 15) {
+      //   let x2Width = itemWidth * 0.8
+      //   let x2ItemDistance = itemDistance(x2Width)
+      //   let x2 = {
+      //     tag: '项目2_' + -(j - itemNum),
+      //     name: 'x2_' + -(j - itemNum),
+      //     size: [ x2Width, itemHeight ],
+      //     position: [ calcOffset(itemNum, x2ItemDistance, j).x, calcOffset(itemNum, x2ItemDistance, j).y, calcOffset(itemNum, x2ItemDistance, j).z ],
+      //     rotation: [ 0, calcOffset(itemNum, x2ItemDistance, j).r, 0 ]
+      //   }
+      //   items.push(x2)
+      // }
+      // // 项目2 end
+      // // 项目3 begin
+      // if (-(j - itemNum) >= 0 && -(j - itemNum) <= 8) {
+      //   let x3Width = itemWidth * 0.95
+      //   let x3ItemDistance = itemDistance(x3Width)
+      //   let x3 = {
+      //     tag: '项目3_' + -(j - itemNum),
+      //     name: 'x3_' + -(j - itemNum),
+      //     size: [ x3Width, itemHeight ],
+      //     position: [ calcOffset(itemNum, x3ItemDistance, j).x, calcOffset(itemNum, x3ItemDistance, j).y, calcOffset(itemNum, x3ItemDistance, j).z ],
+      //     rotation: [ 0, calcOffset(itemNum, x3ItemDistance, j).r, 0 ]
+      //   }
+      //   items.push(x3)
+      // }
+      // // 项目3 end
+      // // 项目4 begin
+      // if (-(j - itemNum) >= 3 && -(j - itemNum) <= 8) {
+      //   let x4Width = itemWidth * 0.80
+      //   let x4ItemDistance = itemDistance(x4Width)
+      //   let x4 = {
+      //     tag: '项目4_' + -(j - itemNum),
+      //     name: 'x4_' + -(j - itemNum),
+      //     size: [ x4Width, itemHeight ],
+      //     position: [ calcOffset(itemNum, x4ItemDistance, j).x, calcOffset(itemNum, x4ItemDistance, j).y, calcOffset(itemNum, x4ItemDistance, j).z ],
+      //     rotation: [ 0, calcOffset(itemNum, x4ItemDistance, j).r, 0 ]
+      //   }
+      //   items.push(x4)
+      // }
+      // // 项目4 end
+      // // 项目5 begin
+      // if (-(j - itemNum) >= 1 && -(j - itemNum) <= 9) {
+      //   let x5Width = itemWidth * 0.75
+      //   let x5ItemDistance = itemDistance(x5Width)
+      //   let x5 = {
+      //     tag: '项目5_' + -(j - itemNum),
+      //     name: 'x5_' + -(j - itemNum),
+      //     size: [ x5Width, itemHeight ],
+      //     position: [ calcOffset(itemNum, x5ItemDistance, j).x, calcOffset(itemNum, x5ItemDistance, j).y, calcOffset(itemNum, x5ItemDistance, j).z ],
+      //     rotation: [ 0, calcOffset(itemNum, x5ItemDistance, j).r, 0 ]
+      //   }
+      //   items.push(x5)
+      // }
+      // // 项目5 end
+      // // 项目6 begin
+      // if ((-(j - itemNum) >= 6 && -(j - itemNum) <= 10) || (-(j - itemNum) >= 12 && -(j - itemNum) <= 19)) {
+      //   let x6Width = itemWidth * 0.65
+      //   let x6ItemDistance = itemDistance(x6Width)
+      //   let x6 = {
+      //     tag: '项目6_' + -(j - itemNum),
+      //     name: 'x6_' + -(j - itemNum),
+      //     size: [ x6Width, itemHeight ],
+      //     position: [ calcOffset(itemNum, x6ItemDistance, j).x, calcOffset(itemNum, x6ItemDistance, j).y, calcOffset(itemNum, x6ItemDistance, j).z ],
+      //     rotation: [ 0, calcOffset(itemNum, x6ItemDistance, j).r, 0 ]
+      //   }
+      //   items.push(x6)
+      // }
+      // // 项目6 end
+      // // 项目6 begin
+      // if (-(j - itemNum) >= 10 && -(j - itemNum) <= 17) {
+      //   let x7Width = itemWidth * 0.60
+      //   let x7ItemDistance = itemDistance(x7Width)
+      //   let x7 = {
+      //     tag: '项目7_' + -(j - itemNum),
+      //     name: 'x7_' + -(j - itemNum),
+      //     size: [ x7Width, itemHeight ],
+      //     position: [ calcOffset(itemNum, x7ItemDistance, j).x, calcOffset(itemNum, x7ItemDistance, j).y, calcOffset(itemNum, x7ItemDistance, j).z ],
+      //     rotation: [ 0, calcOffset(itemNum, x7ItemDistance, j).r, 0 ]
+      //   }
+      //   items.push(x7)
+      // }
+      // // 项目6 end
       // 击剑点击区 begin
       if (-(j - itemNum) === 9) {
         let x2ClickWidth = itemWidth * 2
@@ -422,6 +422,7 @@ const init3D = () => {
     // 渲染 begin
     renderer = new THREE.CSS3DRenderer()
     renderer.setSize(_winSize[0], _winSize[1])
+    document.getElementById('s3D').innerHTML = ''
     document.getElementById('s3D').appendChild(renderer.domElement)
     // renderer.render(scene, camera)
     animate2()
@@ -466,32 +467,33 @@ const init3D = () => {
   // }
 
   window.touch3D = false
-  function onDocumentTouchStart (event) {
-    event.preventDefault()
+  // function onDocumentTouchStart (event) {
+  //   event.preventDefault()
+  //
+  //   const touch = event.touches[0]
+  //
+  //   touchX = touch.screenX
+  //   touchY = touch.screenY
+  //
+  //   window.touch3D = false
+  // }
 
-    const touch = event.touches[0]
-
-    touchX = touch.screenX
-    touchY = touch.screenY
-
-    window.touch3D = false
-  }
-
-  function onDocumentTouchMove (event) {
-    event.preventDefault()
-
-    const touch = event.touches[0]
-
-    lon -= (touch.screenX - touchX) * 0.1
-    lat += (touch.screenY - touchY) * 0.1
-
-    touchX = touch.screenX
-    touchY = touch.screenY
-
-    window.touch3D = true
-  }
+  // function onDocumentTouchMove (event) {
+  //   event.preventDefault()
+  //
+  //   const touch = event.touches[0]
+  //
+  //   lon -= (touch.screenX - touchX) * 0.1
+  //   lat += (touch.screenY - touchY) * 0.1
+  //
+  //   touchX = touch.screenX
+  //   touchY = touch.screenY
+  //
+  //   window.touch3D = true
+  // }
 
   function onDocumentTouchEnd (event) {
+    // event.preventDefault()
     // 触发点 begin
     if (!window.touch3D) {
       let touchedClass = event.target.className
@@ -547,42 +549,48 @@ const init3D = () => {
   }
 
   // ========== begin
-
+  // let _lon = 40
   function animate2 () {
-    lon += 0
-    lat = Math.max(-15, Math.min(15, lat))
-    phi = THREE.Math.degToRad(90 - lat)
-    theta = THREE.Math.degToRad(lon)
+    // if (_lon > 0) {
+    //   _lon = _lon - 0.25
+    // } else {
+    //   _lon = 0
+    // }
+    // lon += _lon
+    // lon += 0
+    // lat = Math.max(-15, Math.min(15, lat))
+    // phi = THREE.Math.degToRad(90 - lat)
+    // theta = THREE.Math.degToRad(lon)
 
     window.requestAnimationFrame(animate2)
 
-    target.x = Math.sin(phi) * Math.cos(theta)
-    target.y = Math.cos(phi)
-    target.z = Math.sin(phi) * Math.sin(theta)
-
-    camera.lookAt(target)
+    // target.x = Math.sin(phi) * Math.cos(theta)
+    // target.y = Math.cos(phi)
+    // target.z = Math.sin(phi) * Math.sin(theta)
+    //
+    // camera.lookAt(target)
 
     // 安卓X5内核不使用重力感应 begin
-    if (navigator.userAgent.indexOf('MQQBrowser') > -1) {
-      if (!window.bind3DEvt) {
-        $(document).on('touchstart', function (event) {
-          onDocumentTouchStart(event)
-        }).on('touchmove', function (event) {
-          onDocumentTouchMove(event)
-        }).on('touchend', function (event) {
-          onDocumentTouchEnd(event)
-        })
-        window.bind3DEvt = true
-      }
-    } else {
-      if (!window.bind3DEvt) {
-        $(document).on('touchend', function (event) {
-          onDocumentTouchEnd(event)
-        })
-        window.bind3DEvt = true
-      }
-      controls.update()
+    // if (navigator.userAgent.indexOf('MQQBrowser') > -1) {
+    //   if (!window.bind3DEvt) {
+    //     $(document).on('touchstart', function (event) {
+    //       onDocumentTouchStart(event)
+    //     }).on('touchmove', function (event) {
+    //       onDocumentTouchMove(event)
+    //     }).on('touchend', function (event) {
+    //       onDocumentTouchEnd(event)
+    //     })
+    //     window.bind3DEvt = true
+    //   }
+    // } else {
+    if (!window.bind3DEvt) {
+      $(document).on('touchend', function (event) {
+        onDocumentTouchEnd(event)
+      })
+      window.bind3DEvt = true
     }
+    controls.update()
+    // }
     // 安卓X5内核不使用重力感应 end
 
     renderer.render(scene, camera)
@@ -596,12 +604,42 @@ const init3D = () => {
  * 3D场景相关 end
  */
 
+/**
+ * 显示答题组件
+ * @param  {[type]} id     [description]
+ * @param  {[type]} status [description]
+ * @return {[type]}        [description]
+ */
 const changeQA = (id, status) => {
   store.dispatch('SET_QA_LOADING', status)
-
-  // window.alert(id)
+  store.dispatch('SET_QA_ID', id)
 }
 
+export const skip = () => {
+  store.dispatch('SET_KKJJ', false)
+  $('#song-audio')[0].pause()
+
+  $('#bgm-audio')[0].play()
+  $('.play').show()
+  $('.pause').hide()
+
+  // 初始化3D场景
+  init3D()
+}
+
+export const skipKKJJ = () => {
+  $('#song-audio')[0].pause()
+  $('.rules').fadeIn('fast', function () {
+    setTimeout(() => {
+      skip()
+    }, 5000)
+  })
+}
+
+/**
+ * 卡拉OK效果
+ * @return {[type]} [description]
+ */
 const kalaok = () => {
   const JT = window.JT
   const JTL = window.JTL
@@ -632,32 +670,104 @@ const kalaok = () => {
     }, '+=' + delay)
   }
 
-  genLyrics('.lyrics-0-0', '.lyrics-0-1', 2, 1)
-  genLyrics('.lyrics-1-0', '.lyrics-1-1', 2, 3)
-  genLyrics('.lyrics-2-0', '.lyrics-2-1', 2, 5)
-  genLyrics('.lyrics-3-0', '.lyrics-3-1', 2, 7)
-  genLyrics('.lyrics-4-0', '.lyrics-4-1', 2, 9)
-  genLyrics('.lyrics-5-0', '.lyrics-5-1', 2, 11)
-  genLyrics('.lyrics-6-0', '.lyrics-6-1', 2, 13)
-  genLyrics('.lyrics-7-0', '.lyrics-7-1', 2, 15)
-  genLyrics('.lyrics-8-0', '.lyrics-8-1', 2, 17, function () {
+  genLyrics('.lyrics-0-0', '.lyrics-0-1', 5.41, 0)
+  genLyrics('.lyrics-1-0', '.lyrics-1-1', 2.65, (5.41 + 10.96))
+  genLyrics('.lyrics-2-0', '.lyrics-2-1', 2.95, (5.41 + 10.96 + 2.65))
+  genLyrics('.lyrics-3-0', '.lyrics-3-1', 2.99, (5.41 + 10.96 + 2.65 + 2.95))
+  genLyrics('.lyrics-4-0', '.lyrics-4-1', 3.78, (5.41 + 10.96 + 2.65 + 2.95 + 2.99))
+  genLyrics('.lyrics-5-0', '.lyrics-5-1', 2.33, (5.41 + 10.96 + 2.65 + 2.95 + 2.99 + 3.78))
+  genLyrics('.lyrics-6-0', '.lyrics-6-1', 3.34, (5.41 + 10.96 + 2.65 + 2.95 + 2.99 + 3.78 + 2.33))
+  genLyrics('.lyrics-7-0', '.lyrics-7-1', 2.88, (5.41 + 10.96 + 2.65 + 2.95 + 2.99 + 3.78 + 2.33 + 3.34))
+  genLyrics('.lyrics-8-0', '.lyrics-8-1', 3.06, (5.41 + 10.96 + 2.65 + 2.95 + 2.99 + 3.78 + 2.33 + 3.34 + 2.88), function () {
     // 隐藏康康佳佳
-    store.dispatch('SET_KKJJ', false)
+    setTimeout(() => {
+      // store.dispatch('SET_KKJJ', false)
+      // $('#song-audio')[0].pause()
+      //
+      // $('#bgm-audio')[0].play()
+      // $('.play').show()
+      // $('.pause').hide()
+      //
+      // // 初始化3D场景
+      // init3D()
+
+      $('.rules').fadeIn('fast', function () {
+        setTimeout(() => {
+          skip()
+        }, 5000)
+      })
+    }, (42.5 - (5.41 + 10.96 + 2.65 + 2.95 + 2.99 + 3.78 + 2.33 + 3.34 + 2.88 + 3.06)) * 1000)
   })
+
+  // 跳舞 begin
+  _tl.fromTo('.walk', 5.41, {
+    x: 0
+  }, {
+    x: -_ww / 2 - $('.walk').width() / 2,
+    onEnd: function () {
+      $('.walk').hide()
+      JT.set('.shake', { opacity: 1 })
+    }
+  }, '+=0')
+  _tl.fromTo('.shake', 0.01, {
+    opacity: 1
+  }, {
+    opacity: 0,
+    display: 'none'
+  }, '+=16.37')
+  _tl.fromTo('.kangkang', 0.01, {
+    opacity: 0
+  }, {
+    opacity: 1
+  }, '+=16.37')
+  _tl.fromTo('.jiajia', 0.01, {
+    opacity: 0
+  }, {
+    opacity: 1
+  }, '+=16.37')
+  _tl.fromTo('.shakeflag', 0.01, {
+    opacity: 0
+  }, {
+    opacity: 1
+  }, '+=28.74')
+  _tl.fromTo('.kangkang', 0.01, {
+    opacity: 1
+  }, {
+    opacity: 0
+  }, '+=28.74')
+  _tl.fromTo('.jiajia', 0.01, {
+    opacity: 1
+  }, {
+    opacity: 0
+  }, '+=28.74')
+  // 跳舞 end
+
+  // 停止背景音乐
+  $('#bgm-audio')[0].pause()
+  $('.play').hide()
+  $('.pause').show()
+
+  // 播放歌曲
+  $('#song-audio')[0].play()
+
+  // 歌词动画
   _tl.play()
 }
 
 export const init = ({ dispatch, state }) => {
   // 初始化3D场景
-  init3D()
+  // init3D()
+
   // 更换背景音乐
-  // const _bgm = document.getElementById('bgm-audio')
-  // _bgm.src = '../../../static/bgm1.mp3'
+  // $('#bgm-audio')[0].src = '../../../static/bgm1.mp3'
   // if (document.querySelector('.play').style.display !== 'none') {
-  //   _bgm.play()
+  //   $('#bgm-audio')[0].play()
   // }
+
   // 显示康康佳佳
   store.dispatch('SET_KKJJ', true)
+
   // 卡拉OK效果
   kalaok()
+  // console.log(kalaok)
 }
